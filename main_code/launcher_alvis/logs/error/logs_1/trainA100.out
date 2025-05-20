@@ -1,0 +1,2073 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=2281536&from=1714060512000
+File for measuring the flow: ../../P125_21pi_vu/P125_21pi_vu.7000.h5.uvw
+Reading flow field
+Flow field read
+Shape of the tensors: (201,96,192)
+File for measuring the flow: ../../P125_21pi_vu/P125_21pi_vu.7000.h5.uvw
+Reading flow field
+Flow field read
+Shape of the tensors: (201,96,192)
+Start the model definition.
+MultiWorker strategy selected: ...
+alvis4-[19,23]
+Original batch size (batch size per node): 16
+Original number of files in memory (fields per node): 80
+Number of workers: 2
+Final batch size (batch size): 32
+Final number of files in memory: 160
+Cluster has been resolved.
+Cluster specification: 
+ClusterSpec({'worker': ['alvis4-19:8888', 'alvis4-23:8888']})
+Comunication has been defined.
+Start the model definition.
+MultiWorker strategy selected: ...
+alvis4-[19,23]
+Original batch size (batch size per node): 16
+Original number of files in memory (fields per node): 80
+Number of workers: 2
+Final batch size (batch size): 32
+Final number of files in memory: 160
+Cluster has been resolved.
+Cluster specification: 
+ClusterSpec({'worker': ['alvis4-19:8888', 'alvis4-23:8888']})
+Comunication has been defined.
+MultiWorker strategy created
+----------------------------------------------------------------------------------------------------
+Number of devices in the strategy: 8
+List of CPUs in use:
+/job:worker/replica:0/task:0/device:CPU:0
+List of GPUs in use:
+MultiWorker strategy created
+/job:worker/replica:0/task:0/device:GPU:0
+/job:worker/replica:0/task:0/device:GPU:1
+/job:worker/replica:0/task:0/device:GPU:2
+/job:worker/replica:0/task:0/device:GPU:3
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Number of devices in the strategy: 8
+List of CPUs in use:
+/job:worker/replica:0/task:1/device:CPU:0
+List of GPUs in use:
+/job:worker/replica:0/task:1/device:GPU:0
+/job:worker/replica:0/task:1/device:GPU:1
+/job:worker/replica:0/task:1/device:GPU:2
+/job:worker/replica:0/task:1/device:GPU:3
+----------------------------------------------------------------------------------------------------
+x_in type:<dtype: 'float32'>
+x11_e type:<dtype: 'float16'>
+x12_e type:<dtype: 'float16'>
+x20_e type:<dtype: 'float16'>
+x21_e type:<dtype: 'float16'>
+x22_e type:<dtype: 'float16'>
+x30_e type:<dtype: 'float16'>
+x31_e type:<dtype: 'float16'>
+x32_e type:<dtype: 'float16'>
+x40_e type:<dtype: 'float16'>
+x41_e type:<dtype: 'float16'>
+x42_e type:<dtype: 'float16'>
+x30_d type:<dtype: 'float16'>
+x31_d type:<dtype: 'float16'>
+x32_d type:<dtype: 'float16'>
+x20_d type:<dtype: 'float16'>
+x21_d type:<dtype: 'float16'>
+x22_d type:<dtype: 'float16'>
+x10_d type:<dtype: 'float16'>
+x11_d type:<dtype: 'float16'>
+x12_d type:<dtype: 'float16'>
+x13_d type:<dtype: 'float16'>
+x_out type:<dtype: 'float16'>
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_1 (InputLayer)           [(None, 201, 126, 2  0           []                               
+                                22, 3)]                                                           
+                                                                                                  
+ conv3d (Conv3D)                (None, 201, 126, 22  1312        ['input_1[0][0]']                
+                                2, 16)                                                            
+                                                                                                  
+ batch_normalization (BatchNorm  (None, 201, 126, 22  64         ['conv3d[0][0]']                 
+ alization)                     2, 16)                                                            
+                                                                                                  
+ activation (Activation)        (None, 201, 126, 22  0           ['batch_normalization[0][0]']    
+x_in type:<dtype: 'float32'>
+x11_e type:<dtype: 'float16'>
+x12_e type:<dtype: 'float16'>
+x20_e type:<dtype: 'float16'>
+x21_e type:<dtype: 'float16'>
+x22_e type:<dtype: 'float16'>
+x30_e type:<dtype: 'float16'>
+x31_e type:<dtype: 'float16'>
+x32_e type:<dtype: 'float16'>
+x40_e type:<dtype: 'float16'>
+x41_e type:<dtype: 'float16'>
+x42_e type:<dtype: 'float16'>
+x30_d type:<dtype: 'float16'>
+x31_d type:<dtype: 'float16'>
+x32_d type:<dtype: 'float16'>
+x20_d type:<dtype: 'float16'>
+x21_d type:<dtype: 'float16'>
+x22_d type:<dtype: 'float16'>
+x10_d type:<dtype: 'float16'>
+x11_d type:<dtype: 'float16'>
+x12_d type:<dtype: 'float16'>
+x13_d type:<dtype: 'float16'>
+x_out type:<dtype: 'float16'>
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+                                2, 16)                                                            
+                                                                                                  
+ conv3d_1 (Conv3D)              (None, 201, 126, 22  6928        ['activation[0][0]']             
+                                2, 16)                                                            
+                                                                                                  
+ batch_normalization_1 (BatchNo  (None, 201, 126, 22  64         ['conv3d_1[0][0]']               
+ rmalization)                   2, 16)                                                            
+                                                                                                  
+ activation_1 (Activation)      (None, 201, 126, 22  0           ['batch_normalization_1[0][0]']  
+                                2, 16)                                                            
+ input_1 (InputLayer)           [(None, 201, 126, 2  0           []                               
+                                22, 3)]                                                           
+                                                                                                  
+ conv3d (Conv3D)                (None, 201, 126, 22  1312        ['input_1[0][0]']                
+                                2, 16)                                                            
+                                                                                                  
+ batch_normalization (BatchNorm  (None, 201, 126, 22  64         ['conv3d[0][0]']                 
+ alization)                     2, 16)                                                            
+                                                                                                  
+ activation (Activation)        (None, 201, 126, 22  0           ['batch_normalization[0][0]']    
+                                                                                                  
+ average_pooling3d (AveragePool  (None, 100, 63, 111  0          ['activation_1[0][0]']           
+ ing3D)                         , 16)                                                             
+                                                                                                  
+ conv3d_2 (Conv3D)              (None, 100, 63, 111  13856       ['average_pooling3d[0][0]']      
+                                , 32)                                                             
+                                                                                                  
+ batch_normalization_2 (BatchNo  (None, 100, 63, 111  128        ['conv3d_2[0][0]']               
+ rmalization)                   , 32)                                                             
+                                                                                                  
+                                2, 16)                                                            
+                                                                                                  
+ conv3d_1 (Conv3D)              (None, 201, 126, 22  6928        ['activation[0][0]']             
+                                2, 16)                                                            
+                                                                                                  
+ batch_normalization_1 (BatchNo  (None, 201, 126, 22  64         ['conv3d_1[0][0]']               
+ rmalization)                   2, 16)                                                            
+                                                                                                  
+ activation_1 (Activation)      (None, 201, 126, 22  0           ['batch_normalization_1[0][0]']  
+                                2, 16)                                                            
+ activation_2 (Activation)      (None, 100, 63, 111  0           ['batch_normalization_2[0][0]']  
+                                                                                                  
+ average_pooling3d (AveragePool  (None, 100, 63, 111  0          ['activation_1[0][0]']           
+ ing3D)                         , 16)                                                             
+                                                                                                  
+ conv3d_2 (Conv3D)              (None, 100, 63, 111  13856       ['average_pooling3d[0][0]']      
+                                , 32)                                                             
+                                                                                                  
+ batch_normalization_2 (BatchNo  (None, 100, 63, 111  128        ['conv3d_2[0][0]']               
+ rmalization)                   , 32)                                                             
+                                                                                                  
+                                , 32)                                                             
+                                                                                                  
+ conv3d_3 (Conv3D)              (None, 100, 63, 111  27680       ['activation_2[0][0]']           
+                                , 32)                                                             
+                                                                                                  
+ batch_normalization_3 (BatchNo  (None, 100, 63, 111  128        ['conv3d_3[0][0]']               
+ rmalization)                   , 32)                                                             
+                                                                                                  
+ activation_3 (Activation)      (None, 100, 63, 111  0           ['batch_normalization_3[0][0]']  
+                                , 32)                                                             
+ activation_2 (Activation)      (None, 100, 63, 111  0           ['batch_normalization_2[0][0]']  
+                                                                                                  
+ average_pooling3d_1 (AveragePo  (None, 50, 31, 55,   0          ['activation_3[0][0]']           
+ oling3D)                       32)                                                               
+                                                                                                  
+ conv3d_4 (Conv3D)              (None, 50, 31, 55,   55360       ['average_pooling3d_1[0][0]']    
+                                64)                                                               
+                                                                                                  
+ batch_normalization_4 (BatchNo  (None, 50, 31, 55,   256        ['conv3d_4[0][0]']               
+ rmalization)                   64)                                                               
+                                                                                                  
+                                , 32)                                                             
+                                                                                                  
+ conv3d_3 (Conv3D)              (None, 100, 63, 111  27680       ['activation_2[0][0]']           
+                                , 32)                                                             
+                                                                                                  
+ batch_normalization_3 (BatchNo  (None, 100, 63, 111  128        ['conv3d_3[0][0]']               
+ rmalization)                   , 32)                                                             
+                                                                                                  
+ activation_3 (Activation)      (None, 100, 63, 111  0           ['batch_normalization_3[0][0]']  
+                                , 32)                                                             
+ activation_4 (Activation)      (None, 50, 31, 55,   0           ['batch_normalization_4[0][0]']  
+                                64)                                                               
+                                                                                                  
+ conv3d_5 (Conv3D)              (None, 50, 31, 55,   110656      ['activation_4[0][0]']           
+                                64)                                                               
+                                                                                                  
+ batch_normalization_5 (BatchNo  (None, 50, 31, 55,   256        ['conv3d_5[0][0]']               
+ rmalization)                   64)                                                               
+                                                                                                  
+ activation_5 (Activation)      (None, 50, 31, 55,   0           ['batch_normalization_5[0][0]']  
+                                                                                                  
+ average_pooling3d_1 (AveragePo  (None, 50, 31, 55,   0          ['activation_3[0][0]']           
+ oling3D)                       32)                                                               
+                                                                                                  
+ conv3d_4 (Conv3D)              (None, 50, 31, 55,   55360       ['average_pooling3d_1[0][0]']    
+                                64)                                                               
+                                                                                                  
+ batch_normalization_4 (BatchNo  (None, 50, 31, 55,   256        ['conv3d_4[0][0]']               
+ rmalization)                   64)                                                               
+                                                                                                  
+                                64)                                                               
+                                                                                                  
+ average_pooling3d_2 (AveragePo  (None, 25, 15, 27,   0          ['activation_5[0][0]']           
+ oling3D)                       64)                                                               
+                                                                                                  
+ conv3d_6 (Conv3D)              (None, 25, 15, 27,   221312      ['average_pooling3d_2[0][0]']    
+                                128)                                                              
+                                                                                                  
+ batch_normalization_6 (BatchNo  (None, 25, 15, 27,   512        ['conv3d_6[0][0]']               
+ rmalization)                   128)                                                              
+ activation_4 (Activation)      (None, 50, 31, 55,   0           ['batch_normalization_4[0][0]']  
+                                64)                                                               
+                                                                                                  
+ conv3d_5 (Conv3D)              (None, 50, 31, 55,   110656      ['activation_4[0][0]']           
+                                64)                                                               
+                                                                                                  
+ batch_normalization_5 (BatchNo  (None, 50, 31, 55,   256        ['conv3d_5[0][0]']               
+ rmalization)                   64)                                                               
+                                                                                                  
+ activation_5 (Activation)      (None, 50, 31, 55,   0           ['batch_normalization_5[0][0]']  
+                                                                                                  
+                                64)                                                               
+                                                                                                  
+ average_pooling3d_2 (AveragePo  (None, 25, 15, 27,   0          ['activation_5[0][0]']           
+ oling3D)                       64)                                                               
+                                                                                                  
+ conv3d_6 (Conv3D)              (None, 25, 15, 27,   221312      ['average_pooling3d_2[0][0]']    
+                                128)                                                              
+                                                                                                  
+ batch_normalization_6 (BatchNo  (None, 25, 15, 27,   512        ['conv3d_6[0][0]']               
+ rmalization)                   128)                                                              
+ activation_6 (Activation)      (None, 25, 15, 27,   0           ['batch_normalization_6[0][0]']  
+                                128)                                                              
+                                                                                                  
+ conv3d_7 (Conv3D)              (None, 25, 15, 27,   442496      ['activation_6[0][0]']           
+                                128)                                                              
+                                                                                                  
+ batch_normalization_7 (BatchNo  (None, 25, 15, 27,   512        ['conv3d_7[0][0]']               
+ rmalization)                   128)                                                              
+                                                                                                  
+ activation_7 (Activation)      (None, 25, 15, 27,   0           ['batch_normalization_7[0][0]']  
+                                                                                                  
+                                128)                                                              
+                                                                                                  
+ conv3d_transpose (Conv3DTransp  (None, 51, 31, 55,   221248     ['activation_7[0][0]']           
+ ose)                           64)                                                               
+                                                                                                  
+ batch_normalization_8 (BatchNo  (None, 51, 31, 55,   256        ['conv3d_transpose[0][0]']       
+ rmalization)                   64)                                                               
+                                                                                                  
+ activation_8 (Activation)      (None, 51, 31, 55,   0           ['batch_normalization_8[0][0]']  
+                                64)                                                               
+ activation_6 (Activation)      (None, 25, 15, 27,   0           ['batch_normalization_6[0][0]']  
+                                128)                                                              
+                                                                                                  
+ conv3d_7 (Conv3D)              (None, 25, 15, 27,   442496      ['activation_6[0][0]']           
+                                128)                                                              
+                                                                                                  
+ batch_normalization_7 (BatchNo  (None, 25, 15, 27,   512        ['conv3d_7[0][0]']               
+ rmalization)                   128)                                                              
+                                                                                                  
+ activation_7 (Activation)      (None, 25, 15, 27,   0           ['batch_normalization_7[0][0]']  
+                                                                                                  
+ tf.__operators__.getitem_1 (Sl  (None, 50, 31, 55,   0          ['activation_8[0][0]']           
+ icingOpLambda)                 64)                                                               
+                                                                                                  
+ concatenate (Concatenate)      (None, 50, 31, 55,   0           ['activation_5[0][0]',           
+                                128)                              'tf.__operators__.getitem_1[0][0
+                                                                 ]']                              
+                                                                                                  
+ conv3d_8 (Conv3D)              (None, 50, 31, 55,   221248      ['concatenate[0][0]']            
+                                64)                                                               
+                                128)                                                              
+                                                                                                  
+ conv3d_transpose (Conv3DTransp  (None, 51, 31, 55,   221248     ['activation_7[0][0]']           
+ ose)                           64)                                                               
+                                                                                                  
+ batch_normalization_8 (BatchNo  (None, 51, 31, 55,   256        ['conv3d_transpose[0][0]']       
+ rmalization)                   64)                                                               
+                                                                                                  
+ activation_8 (Activation)      (None, 51, 31, 55,   0           ['batch_normalization_8[0][0]']  
+                                64)                                                               
+                                                                                                  
+ batch_normalization_9 (BatchNo  (None, 50, 31, 55,   256        ['conv3d_8[0][0]']               
+ rmalization)                   64)                                                               
+                                                                                                  
+ activation_9 (Activation)      (None, 50, 31, 55,   0           ['batch_normalization_9[0][0]']  
+                                64)                                                               
+                                                                                                  
+ conv3d_transpose_1 (Conv3DTran  (None, 101, 63, 111  55328      ['activation_9[0][0]']           
+ spose)                         , 32)                                                             
+                                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_1 (Sl  (None, 50, 31, 55,   0          ['activation_8[0][0]']           
+ icingOpLambda)                 64)                                                               
+                                                                                                  
+ concatenate (Concatenate)      (None, 50, 31, 55,   0           ['activation_5[0][0]',           
+                                128)                              'tf.__operators__.getitem_1[0][0
+                                                                 ]']                              
+                                                                                                  
+ conv3d_8 (Conv3D)              (None, 50, 31, 55,   221248      ['concatenate[0][0]']            
+                                64)                                                               
+ batch_normalization_10 (BatchN  (None, 101, 63, 111  128        ['conv3d_transpose_1[0][0]']     
+                                                                                                  
+ batch_normalization_9 (BatchNo  (None, 50, 31, 55,   256        ['conv3d_8[0][0]']               
+ rmalization)                   64)                                                               
+                                                                                                  
+ activation_9 (Activation)      (None, 50, 31, 55,   0           ['batch_normalization_9[0][0]']  
+                                64)                                                               
+                                                                                                  
+ conv3d_transpose_1 (Conv3DTran  (None, 101, 63, 111  55328      ['activation_9[0][0]']           
+ spose)                         , 32)                                                             
+                                                                                                  
+ ormalization)                  , 32)                                                             
+                                                                                                  
+ activation_10 (Activation)     (None, 101, 63, 111  0           ['batch_normalization_10[0][0]'] 
+                                , 32)                                                             
+                                                                                                  
+ tf.__operators__.getitem_3 (Sl  (None, 100, 63, 111  0          ['activation_10[0][0]']          
+ icingOpLambda)                 , 32)                                                             
+                                                                                                  
+ concatenate_1 (Concatenate)    (None, 100, 63, 111  0           ['activation_3[0][0]',           
+                                , 64)                             'tf.__operators__.getitem_3[0][0
+ batch_normalization_10 (BatchN  (None, 101, 63, 111  128        ['conv3d_transpose_1[0][0]']     
+                                                                 ]']                              
+                                                                                                  
+ conv3d_9 (Conv3D)              (None, 100, 63, 111  55328       ['concatenate_1[0][0]']          
+                                , 32)                                                             
+                                                                                                  
+ batch_normalization_11 (BatchN  (None, 100, 63, 111  128        ['conv3d_9[0][0]']               
+ ormalization)                  , 32)                                                             
+                                                                                                  
+ activation_11 (Activation)     (None, 100, 63, 111  0           ['batch_normalization_11[0][0]'] 
+                                , 32)                                                             
+ ormalization)                  , 32)                                                             
+                                                                                                  
+ activation_10 (Activation)     (None, 101, 63, 111  0           ['batch_normalization_10[0][0]'] 
+                                , 32)                                                             
+                                                                                                  
+ tf.__operators__.getitem_3 (Sl  (None, 100, 63, 111  0          ['activation_10[0][0]']          
+ icingOpLambda)                 , 32)                                                             
+                                                                                                  
+ concatenate_1 (Concatenate)    (None, 100, 63, 111  0           ['activation_3[0][0]',           
+                                , 64)                             'tf.__operators__.getitem_3[0][0
+                                                                                                  
+ conv3d_transpose_2 (Conv3DTran  (None, 201, 127, 22  13840      ['activation_11[0][0]']          
+ spose)                         3, 16)                                                            
+                                                                                                  
+ batch_normalization_12 (BatchN  (None, 201, 127, 22  64         ['conv3d_transpose_2[0][0]']     
+ ormalization)                  3, 16)                                                            
+                                                                                                  
+ activation_12 (Activation)     (None, 201, 127, 22  0           ['batch_normalization_12[0][0]'] 
+                                3, 16)                                                            
+                                                                                                  
+                                                                 ]']                              
+                                                                                                  
+ conv3d_9 (Conv3D)              (None, 100, 63, 111  55328       ['concatenate_1[0][0]']          
+                                , 32)                                                             
+                                                                                                  
+ batch_normalization_11 (BatchN  (None, 100, 63, 111  128        ['conv3d_9[0][0]']               
+ ormalization)                  , 32)                                                             
+                                                                                                  
+ activation_11 (Activation)     (None, 100, 63, 111  0           ['batch_normalization_11[0][0]'] 
+                                , 32)                                                             
+ tf.__operators__.getitem_5 (Sl  (None, 201, 126, 22  0          ['activation_12[0][0]']          
+ icingOpLambda)                 2, 16)                                                            
+                                                                                                  
+ concatenate_2 (Concatenate)    (None, 201, 126, 22  0           ['activation_1[0][0]',           
+                                2, 32)                            'tf.__operators__.getitem_5[0][0
+                                                                 ]']                              
+                                                                                                  
+ conv3d_10 (Conv3D)             (None, 201, 126, 22  13840       ['concatenate_2[0][0]']          
+                                2, 16)                                                            
+                                                                                                  
+                                                                                                  
+ conv3d_transpose_2 (Conv3DTran  (None, 201, 127, 22  13840      ['activation_11[0][0]']          
+ spose)                         3, 16)                                                            
+                                                                                                  
+ batch_normalization_12 (BatchN  (None, 201, 127, 22  64         ['conv3d_transpose_2[0][0]']     
+ ormalization)                  3, 16)                                                            
+                                                                                                  
+ activation_12 (Activation)     (None, 201, 127, 22  0           ['batch_normalization_12[0][0]'] 
+                                3, 16)                                                            
+                                                                                                  
+ batch_normalization_13 (BatchN  (None, 201, 126, 22  64         ['conv3d_10[0][0]']              
+ tf.__operators__.getitem_5 (Sl  (None, 201, 126, 22  0          ['activation_12[0][0]']          
+ icingOpLambda)                 2, 16)                                                            
+                                                                                                  
+ concatenate_2 (Concatenate)    (None, 201, 126, 22  0           ['activation_1[0][0]',           
+                                2, 32)                            'tf.__operators__.getitem_5[0][0
+                                                                 ]']                              
+                                                                                                  
+ conv3d_10 (Conv3D)             (None, 201, 126, 22  13840       ['concatenate_2[0][0]']          
+                                2, 16)                                                            
+                                                                                                  
+ ormalization)                  2, 16)                                                            
+                                                                                                  
+ activation_13 (Activation)     (None, 201, 126, 22  0           ['batch_normalization_13[0][0]'] 
+                                2, 16)                                                            
+                                                                                                  
+ conv3d_11 (Conv3D)             (None, 201, 126, 22  1299        ['activation_13[0][0]']          
+                                2, 3)                                                             
+                                                                                                  
+ batch_normalization_14 (BatchN  (None, 201, 126, 22  12         ['conv3d_11[0][0]']              
+ ormalization)                  2, 3)                                                             
+ batch_normalization_13 (BatchN  (None, 201, 126, 22  64         ['conv3d_10[0][0]']              
+                                                                                                  
+ activation_14 (Activation)     (None, 201, 126, 22  0           ['batch_normalization_14[0][0]'] 
+                                2, 3)                                                             
+                                                                                                  
+ tf.__operators__.getitem_6 (Sl  (None, 201, 96, 192  0          ['activation_14[0][0]']          
+ icingOpLambda)                 , 3)                                                              
+                                                                                                  
+==================================================================================================
+Total params: 1,464,559
+Trainable params: 1,463,145
+Non-trainable params: 1,414
+__________________________________________________________________________________________________
+Total RAM (GB): 269.53689088
+ ormalization)                  2, 16)                                                            
+                                                                                                  
+ activation_13 (Activation)     (None, 201, 126, 22  0           ['batch_normalization_13[0][0]'] 
+                                2, 16)                                                            
+                                                                                                  
+ conv3d_11 (Conv3D)             (None, 201, 126, 22  1299        ['activation_13[0][0]']          
+                                2, 3)                                                             
+                                                                                                  
+ batch_normalization_14 (BatchN  (None, 201, 126, 22  12         ['conv3d_11[0][0]']              
+ ormalization)                  2, 3)                                                             
+----------------------------------------------------------------------------------------------------
+                                                                                                  
+ activation_14 (Activation)     (None, 201, 126, 22  0           ['batch_normalization_14[0][0]'] 
+                                2, 3)                                                             
+                                                                                                  
+ tf.__operators__.getitem_6 (Sl  (None, 201, 96, 192  0          ['activation_14[0][0]']          
+ icingOpLambda)                 , 3)                                                              
+                                                                                                  
+==================================================================================================
+Total params: 1,464,559
+Trainable params: 1,463,145
+Non-trainable params: 1,414
+__________________________________________________________________________________________________
+Total RAM (GB): 269.536915456
+----------------------------------------------------------------------------------------------------
+Train size: 128.0
+Validation size: 32.0
+Train size: 128.0
+Validation size: 32.0
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 0.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2208
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 0.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3292
+Time to read field 3292: 2.518242835998535
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 0.78125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4282
+Time to read field 2208: 2.773190975189209
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 0.78125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3841
+Time to read field 4282: 2.2385404109954834
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 1.5625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6166
+Time to read field 3841: 3.124728202819824
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 1.5625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2801
+Time to read field 6166: 1.9866244792938232
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 2.34375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2614
+Time to read field 2801: 2.02022385597229
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 2.34375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6091
+Time to read field 2614: 2.1264846324920654
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 3.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6675
+Time to read field 6091: 1.9407141208648682
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 3.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4307
+Time to read field 6675: 2.028201103210449
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 3.90625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1520
+Time to read field 4307: 2.0375237464904785
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 3.90625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6380
+Time to read field 1520: 1.9290645122528076
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 4.6875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1929
+Time to read field 6380: 2.1055235862731934
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 4.6875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5843
+Time to read field 1929: 2.3933942317962646
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 5.46875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1400
+Time to read field 5843: 2.156506299972534
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 5.46875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6572
+Time to read field 1400: 2.0717122554779053
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 6.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3076
+Time to read field 6572: 2.0333521366119385
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 6.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5611
+Time to read field 3076: 1.997046947479248
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 7.03125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5768
+Time to read field 5611: 2.014338493347168
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 7.03125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1630
+Time to read field 5768: 2.3335726261138916
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 7.8125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5877
+Time to read field 1630: 2.1513121128082275
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 7.8125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6277
+Time to read field 5877: 1.9544856548309326
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 8.59375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5665
+Time to read field 6277: 2.1933069229125977
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 8.59375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6293
+Time to read field 5665: 2.1220219135284424
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 9.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6653
+Time to read field 6293: 2.014631986618042
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 9.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6977
+Time to read field 6653: 1.9600508213043213
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 10.15625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4828
+Time to read field 6977: 2.277369499206543
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 10.15625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4388
+Time to read field 4828: 1.9987287521362305
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 10.9375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3905
+Time to read field 4388: 1.9459564685821533
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 10.9375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1624
+Time to read field 3905: 2.14616060256958
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 11.71875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4843
+Time to read field 1624: 2.028958320617676
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 11.71875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5515
+Time to read field 4843: 2.262996196746826
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 12.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5278
+Time to read field 5515: 2.0524165630340576
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 12.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1231
+Time to read field 5278: 2.0459704399108887
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 13.28125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4164
+Time to read field 1231: 2.1595842838287354
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 13.28125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6334
+Time to read field 4164: 2.009204864501953
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 14.0625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6239
+Time to read field 6334: 2.038510322570801
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 14.0625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5451
+Time to read field 6239: 2.037243366241455
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 14.84375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5334
+Time to read field 5451: 1.9980781078338623
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 14.84375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1576
+Time to read field 5334: 1.9696965217590332
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 15.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4717
+Time to read field 1576: 2.132622241973877
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 15.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2327
+Time to read field 4717: 1.9891040325164795
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 16.40625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1574
+Time to read field 2327: 2.039412021636963
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 16.40625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3751
+Time to read field 1574: 2.111593246459961
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 17.1875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4134
+Time to read field 3751: 2.0068299770355225
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 17.1875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2365
+Time to read field 4134: 1.957507848739624
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 17.96875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6652
+Time to read field 2365: 2.0647809505462646
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 17.96875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2769
+Time to read field 6652: 2.0902175903320312
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 18.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2983
+Time to read field 2769: 1.982858419418335
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 18.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3408
+Time to read field 2983: 1.9729371070861816
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 19.53125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1444
+Time to read field 3408: 1.9837207794189453
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 19.53125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5739
+Time to read field 1444: 2.1707279682159424
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 20.3125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6941
+Time to read field 5739: 1.9868817329406738
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 20.3125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3466
+Time to read field 6941: 2.030438184738159
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 21.09375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4531
+Time to read field 3466: 2.1907033920288086
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 21.09375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3775
+Time to read field 4531: 2.0489418506622314
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 21.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1821
+Time to read field 3775: 2.031745433807373
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 21.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2157
+Time to read field 1821: 2.060598373413086
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 22.65625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3476
+Time to read field 2157: 2.017256498336792
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 22.65625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1134
+Time to read field 3476: 1.9652595520019531
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 23.4375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1068
+Time to read field 1134: 2.0107219219207764
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 23.4375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5989
+Time to read field 1068: 2.0511817932128906
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 24.21875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1699
+Time to read field 5989: 2.040922164916992
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 24.21875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3925
+Time to read field 1699: 2.044548988342285
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 25.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4627
+Time to read field 3925: 2.0544238090515137
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 25.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5939
+Time to read field 4627: 2.2022550106048584
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 25.78125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2605
+Time to read field 5939: 2.100884199142456
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 25.78125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1516
+Time to read field 2605: 2.7041919231414795
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 26.5625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1830
+Time to read field 1516: 2.4972610473632812
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 26.5625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2986
+Time to read field 1830: 2.2430505752563477
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 27.34375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1694
+Time to read field 2986: 2.1249256134033203
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 27.34375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5787
+Time to read field 1694: 2.274496555328369
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 28.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6513
+Time to read field 5787: 2.281029224395752
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 28.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1204
+Time to read field 6513: 2.3541295528411865
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 28.90625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3128
+Time to read field 1204: 2.2831411361694336
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 28.90625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3828
+Time to read field 3128: 2.2393088340759277
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 29.6875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3783
+Time to read field 3828: 2.355593204498291
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 29.6875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5073
+Time to read field 3783: 2.1520698070526123
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 30.46875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4525
+Time to read field 5073: 2.268024206161499
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 30.46875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6092
+Time to read field 4525: 2.0074563026428223
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 31.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5488
+Time to read field 6092: 2.1552679538726807
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 31.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3957
+Time to read field 5488: 2.0919811725616455
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 32.03125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2061
+Time to read field 3957: 2.07978892326355
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 32.03125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6156
+Time to read field 2061: 2.0811450481414795
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 32.8125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5362
+Time to read field 6156: 2.01898193359375
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 32.8125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5349
+Time to read field 5362: 2.2169439792633057
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 33.59375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1117
+Time to read field 5349: 2.0985398292541504
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 33.59375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3783
+Time to read field 1117: 2.068329334259033
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 34.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1331
+Time to read field 3783: 2.1580522060394287
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 34.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1830
+Time to read field 1331: 1.9710497856140137
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 35.15625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6664
+Time to read field 1830: 2.2133140563964844
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 35.15625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2476
+Time to read field 6664: 1.957014799118042
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 35.9375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4065
+Time to read field 2476: 2.0769519805908203
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 35.9375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4070
+Time to read field 4065: 2.0380027294158936
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 36.71875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5937
+Time to read field 4070: 2.0309512615203857
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 36.71875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4196
+Time to read field 5937: 2.0716350078582764
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 37.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3337
+Time to read field 4196: 2.1232287883758545
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 37.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2280
+Time to read field 3337: 2.0175740718841553
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 38.28125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5232
+Time to read field 2280: 2.221545934677124
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 38.28125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5948
+Time to read field 5232: 2.1275951862335205
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 39.0625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3230
+Time to read field 5948: 2.2056169509887695
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 39.0625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6945
+Time to read field 3230: 2.1326990127563477
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 39.84375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6661
+Time to read field 6945: 2.025646448135376
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 39.84375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5825
+Time to read field 6661: 2.2633206844329834
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 40.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2388
+Time to read field 5825: 1.9615135192871094
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 40.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1224
+Time to read field 2388: 2.0062806606292725
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 41.40625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3554
+Time to read field 1224: 2.1190907955169678
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 41.40625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6678
+Time to read field 3554: 2.098693370819092
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 42.1875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1822
+Time to read field 6678: 1.9471652507781982
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 42.1875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6353
+Time to read field 1822: 2.0003788471221924
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 42.96875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3917
+Time to read field 6353: 2.1712307929992676
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 42.96875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6727
+Time to read field 3917: 1.9925358295440674
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 43.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1700
+Time to read field 6727: 2.046910285949707
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 43.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5627
+Time to read field 1700: 2.0733020305633545
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 44.53125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6367
+Time to read field 5627: 2.0937342643737793
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 44.53125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5710
+Time to read field 6367: 2.0900235176086426
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 45.3125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4040
+Time to read field 5710: 2.028726577758789
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 45.3125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6466
+Time to read field 4040: 2.0878138542175293
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 46.09375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4121
+Time to read field 6466: 2.1325550079345703
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 46.09375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6472
+Time to read field 4121: 2.1519675254821777
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 46.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2678
+Time to read field 6472: 2.054185628890991
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 46.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5207
+Time to read field 2678: 1.9830873012542725
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 47.65625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4736
+Time to read field 5207: 1.963230848312378
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 47.65625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5314
+Time to read field 4736: 2.103956699371338
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 48.4375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4656
+Time to read field 4656: 2.2620909214019775
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 49.21875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4314
+Time to read field 5314: 3.5290613174438477
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 48.4375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6478
+Time to read field 4314: 2.377270221710205
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 50.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5105
+Time to read field 6478: 2.552598714828491
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 49.21875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6158
+Time to read field 5105: 2.0704452991485596
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 50.78125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6956
+Time to read field 6158: 2.4178569316864014
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 50.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1139
+Time to read field 6956: 1.9275236129760742
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 51.5625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3630
+Time to read field 1139: 2.162118911743164
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 50.78125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4785
+Time to read field 3630: 2.0334510803222656
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 52.34375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5593
+Time to read field 4785: 2.063650131225586
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 51.5625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6461
+Time to read field 5593: 2.017683267593384
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 53.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6969
+Time to read field 6461: 2.146976947784424
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 52.34375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6248
+Time to read field 6969: 1.9991233348846436
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 53.90625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4319
+Time to read field 6248: 2.0647454261779785
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 53.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6913
+Time to read field 4319: 2.1296095848083496
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 54.6875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1903
+Time to read field 6913: 2.001307487487793
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 53.90625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5187
+Time to read field 1903: 2.158773899078369
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 55.46875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6847
+Time to read field 5187: 1.949338436126709
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 54.6875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6510
+Time to read field 6847: 2.0341298580169678
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 56.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5374
+Time to read field 6510: 2.0691399574279785
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 55.46875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2749
+Time to read field 5374: 1.9922456741333008
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 57.03125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2186
+Time to read field 2749: 2.0618536472320557
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 56.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4368
+Time to read field 2186: 1.983360767364502
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 57.8125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2323
+Time to read field 4368: 2.039325475692749
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 57.03125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4415
+Time to read field 2323: 1.9800121784210205
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 58.59375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5531
+Time to read field 4415: 1.9522194862365723
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 57.8125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6879
+Time to read field 5531: 2.1306698322296143
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 59.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3006
+Time to read field 6879: 1.9755704402923584
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 58.59375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5965
+Time to read field 3006: 2.041086196899414
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 60.15625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6777
+Time to read field 5965: 2.0788817405700684
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 59.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4383
+Time to read field 6777: 1.9716753959655762
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 60.9375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3093
+Time to read field 4383: 2.0911216735839844
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 60.15625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5438
+Time to read field 3093: 1.9857337474822998
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 61.71875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1787
+Time to read field 5438: 2.0044727325439453
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 60.9375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1133
+Time to read field 1787: 2.102806329727173
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 62.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2685
+Time to read field 1133: 2.101609468460083
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 61.71875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5158
+Time to read field 2685: 1.9708490371704102
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 63.28125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5805
+Time to read field 5158: 1.9452877044677734
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 62.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5560
+Time to read field 5805: 2.010652780532837
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 64.0625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4409
+Time to read field 5560: 2.102527618408203
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 63.28125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5674
+Time to read field 4409: 2.027114152908325
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 64.84375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1948
+Time to read field 5674: 1.948089361190796
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 64.0625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1391
+Time to read field 1948: 2.0341873168945312
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 65.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6977
+Time to read field 1391: 2.0278265476226807
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 64.84375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4086
+Time to read field 6977: 2.086196184158325
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 66.40625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1708
+Time to read field 4086: 2.176917314529419
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 65.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4948
+Time to read field 1708: 2.038788080215454
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 67.1875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6602
+Time to read field 4948: 2.0020835399627686
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 66.40625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3494
+Time to read field 6602: 2.0384254455566406
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 67.96875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2010
+Time to read field 3494: 1.986372947692871
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 67.1875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3787
+Time to read field 2010: 1.9906713962554932
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 68.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3015
+Time to read field 3787: 2.156198024749756
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 67.96875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1533
+Time to read field 3015: 2.0901124477386475
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 69.53125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6020
+Time to read field 1533: 2.0878400802612305
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 68.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3231
+Time to read field 6020: 2.073701858520508
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 70.3125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6485
+Time to read field 3231: 2.1127383708953857
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 69.53125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1303
+Time to read field 6485: 2.0921287536621094
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 71.09375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6395
+Time to read field 1303: 2.1098592281341553
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 70.3125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3781
+Time to read field 6395: 2.0495457649230957
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 71.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2535
+Time to read field 3781: 2.0308640003204346
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 71.09375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1616
+Time to read field 2535: 2.1035966873168945
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 72.65625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6421
+Time to read field 1616: 2.0257413387298584
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 71.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2163
+Time to read field 6421: 2.0379586219787598
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 73.4375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2973
+Time to read field 2163: 1.9664969444274902
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 72.65625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1986
+Time to read field 2973: 2.1743927001953125
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 74.21875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4787
+Time to read field 1986: 1.966672658920288
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 73.4375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4793
+Time to read field 4787: 2.1040008068084717
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 75.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3013
+Time to read field 4793: 2.080590009689331
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 74.21875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4908
+Time to read field 3013: 2.117701768875122
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 75.78125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6704
+Time to read field 4908: 2.094524383544922
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 75.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4384
+Time to read field 6704: 2.035588502883911
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 76.5625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4957
+Time to read field 4384: 2.2065865993499756
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 75.78125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2087
+Time to read field 4957: 1.9652812480926514
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 77.34375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5588
+Time to read field 2087: 2.0086779594421387
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 76.5625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3315
+Time to read field 5588: 2.0971903800964355
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 78.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2658
+Time to read field 3315: 2.056077003479004
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 77.34375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6911
+Time to read field 2658: 2.001138925552368
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 78.90625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3978
+Time to read field 6911: 1.9812324047088623
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 78.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3108
+Time to read field 3978: 2.0926003456115723
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 79.6875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1118
+Time to read field 3108: 1.9982714653015137
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 78.90625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3888
+Time to read field 1118: 2.017719268798828
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 80.46875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5381
+Time to read field 3888: 2.015002727508545
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 79.6875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3699
+Time to read field 5381: 2.25512433052063
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 81.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4576
+Time to read field 3699: 2.193920135498047
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 80.46875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6076
+Time to read field 4576: 2.049872398376465
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 82.03125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4565
+Time to read field 6076: 2.0137524604797363
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 81.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4431
+Time to read field 4565: 2.2592504024505615
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 82.8125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5460
+Time to read field 4431: 2.184782028198242
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 82.03125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1509
+Time to read field 5460: 2.2003965377807617
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 83.59375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4858
+Time to read field 1509: 2.191795825958252
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 82.8125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3900
+Time to read field 4858: 2.09091854095459
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 84.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4092
+Time to read field 3900: 2.14790940284729
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 83.59375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6624
+Time to read field 4092: 1.996953010559082
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 85.15625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6741
+Time to read field 6624: 2.1896297931671143
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 84.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4613
+Time to read field 4613: 2.2716474533081055
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 85.15625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6851
+Time to read field 6741: 3.4883060455322266
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 85.9375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4886
+Time to read field 6851: 2.32029390335083
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 85.9375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2853
+Time to read field 4886: 2.6315720081329346
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 86.71875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5632
+Time to read field 2853: 2.2077105045318604
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 86.71875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5511
+Time to read field 5632: 2.3712618350982666
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 87.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3045
+Time to read field 5511: 1.951899528503418
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 87.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3752
+Time to read field 3045: 2.1964893341064453
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 88.28125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3938
+Time to read field 3752: 2.0395781993865967
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 88.28125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5481
+Time to read field 3938: 2.0813629627227783
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 89.0625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5891
+Time to read field 5481: 2.1306700706481934
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 89.0625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4158
+Time to read field 5891: 2.021740436553955
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 89.84375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2655
+Time to read field 4158: 1.997086524963379
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 89.84375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2078
+Time to read field 2655: 2.1624481678009033
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 90.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2052
+Time to read field 2078: 2.1229982376098633
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 90.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4454
+Time to read field 2052: 1.9992175102233887
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 91.40625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6865
+Time to read field 4454: 2.043375253677368
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 91.40625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3750
+Time to read field 6865: 2.0710110664367676
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 92.1875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6647
+Time to read field 3750: 1.9684135913848877
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 92.1875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5973
+Time to read field 6647: 1.9698331356048584
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 92.96875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5791
+Time to read field 5973: 2.1490113735198975
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 92.96875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1484
+Time to read field 5791: 2.0525238513946533
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 93.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4851
+Time to read field 1484: 2.00575590133667
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 93.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5626
+Time to read field 4851: 2.0598576068878174
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 94.53125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3716
+Time to read field 5626: 2.0246078968048096
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 94.53125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3658
+Time to read field 3716: 2.0139248371124268
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 95.3125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6035
+Time to read field 3658: 1.9891998767852783
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 95.3125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2115
+Time to read field 6035: 2.022416830062866
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 96.09375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6939
+Time to read field 2115: 2.0136022567749023
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 96.09375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6231
+Time to read field 6939: 2.0216758251190186
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 96.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2765
+Time to read field 6231: 1.9977529048919678
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 96.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3182
+Time to read field 2765: 2.061974287033081
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 97.65625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4527
+Time to read field 3182: 1.9960410594940186
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 97.65625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5247
+Time to read field 4527: 2.2912449836730957
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 98.4375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2550
+Time to read field 5247: 2.0747153759002686
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 98.4375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1413
+Time to read field 2550: 2.097792863845825
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 99.21875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4844
+Time to read field 1413: 2.1122748851776123
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Training field: percentage: 99.21875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5001
+Time to read field 4844: 2.0450944900512695
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 0.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2062
+Time to read field 5001: 2.0889453887939453
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 0.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3275
+Time to read field 2062: 2.3676633834838867
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 3.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3531
+Time to read field 3275: 2.2735252380371094
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 3.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4944
+Time to read field 3531: 1.9131839275360107
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 6.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5262
+Time to read field 4944: 2.199359655380249
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 6.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2637
+Time to read field 5262: 2.205984115600586
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 9.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1304
+Time to read field 2637: 2.0122759342193604
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 9.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2179
+Time to read field 1304: 2.0056345462799072
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 12.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1473
+Time to read field 2179: 2.141921043395996
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 12.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1944
+Time to read field 1473: 1.9873414039611816
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 15.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1841
+Time to read field 1944: 1.980292797088623
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 15.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2983
+Time to read field 1841: 2.0182464122772217
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 18.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2608
+Time to read field 2983: 2.2552859783172607
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 18.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4987
+Time to read field 2608: 1.9846947193145752
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 21.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6289
+Time to read field 4987: 2.019303798675537
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 21.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1362
+Time to read field 6289: 2.0814266204833984
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 25.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3359
+Time to read field 1362: 1.9208531379699707
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 25.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4847
+Time to read field 3359: 2.143115758895874
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 28.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2312
+Time to read field 4847: 2.028709888458252
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 28.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2509
+Time to read field 2312: 1.9658267498016357
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 31.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4103
+Time to read field 2509: 2.038548707962036
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 31.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1193
+Time to read field 4103: 1.9805035591125488
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 34.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4110
+Time to read field 1193: 2.0532479286193848
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 34.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4601
+Time to read field 4110: 2.3861982822418213
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 37.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6623
+Time to read field 4601: 2.24129056930542
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 37.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1328
+Time to read field 6623: 1.988739252090454
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 40.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3142
+Time to read field 1328: 1.9966440200805664
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 40.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3303
+Time to read field 3142: 2.8225677013397217
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 43.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5265
+Time to read field 5265: 2.9084432125091553
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 46.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3984
+Time to read field 3303: 4.821124076843262
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 43.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5960
+Time to read field 3984: 5.2048728466033936
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 50.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6699
+Time to read field 6699: 3.875664710998535
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 53.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2044
+Time to read field 5960: 11.519161701202393
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 46.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1071
+Time to read field 2044: 4.792761564254761
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 56.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3796
+Time to read field 1071: 2.4847571849823
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 50.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6083
+Time to read field 3796: 7.8955299854278564
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 59.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3888
+Time to read field 6083: 9.912814140319824
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 53.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4526
+Time to read field 3888: 6.680941104888916
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 62.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5490
+Time to read field 4526: 6.916774749755859
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 56.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1807
+Time to read field 5490: 7.977004528045654
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 65.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6727
+Time to read field 1807: 6.648663520812988
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 59.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4141
+Time to read field 4141: 7.014939785003662
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 62.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2996
+Time to read field 6727: 12.223701000213623
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 68.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6330
+Time to read field 2996: 15.149347305297852
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 65.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1119
+Time to read field 6330: 12.799514293670654
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 71.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1290
+Time to read field 1119: 11.376660823822021
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 68.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1411
+Time to read field 1290: 11.368406534194946
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 75.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4827
+Time to read field 1411: 2.3920538425445557
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 71.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1768
+Time to read field 4827: 6.280606269836426
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 78.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6896
+Time to read field 1768: 8.751593112945557
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 75.0%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1555
+Time to read field 1555: 2.3546178340911865
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 78.125%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6524
+Time to read field 6896: 11.422219038009644
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 81.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3212
+Time to read field 6524: 12.576619386672974
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 81.25%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5512
+Time to read field 3212: 9.175202369689941
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 84.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3804
+Time to read field 5512: 9.187283277511597
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 84.375%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.1822
+Time to read field 3804: 8.748933553695679
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 87.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4344
+Time to read field 1822: 3.4354755878448486
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 87.5%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.3687
+Time to read field 4344: 3.2531142234802246
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 90.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2188
+Time to read field 3687: 4.481729507446289
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 90.625%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6330
+Time to read field 2188: 2.8790173530578613
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 93.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.2779
+Time to read field 6330: 7.891642332077026
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 93.75%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.4736
+Time to read field 2779: 9.206175088882446
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 96.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.6786
+Time to read field 4736: 7.641047716140747
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Validation field: percentage: 96.875%
+Reading tensorflow field: /scratch/andrescb/explanableturbulentchannel/Project_explainability/P125_21pi_vu_tf_float32//P125_21pi_vu.5433
+Time to read field 6786: 9.664623260498047
+----------------------------------------------------------------------------------------------------
+Training... 0.0%
+Time to read field 5433: 7.68825101852417
+----------------------------------------------------------------------------------------------------
+Training... 0.0%
+Epoch 1/20
+Epoch 1/20

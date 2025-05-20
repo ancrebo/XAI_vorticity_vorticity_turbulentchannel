@@ -1,0 +1,133 @@
++ cd ../
++ module purge
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ module load TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ srun python main_CNN.py
+2024-04-25 17:55:19.683032: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 38423 MB memory:  -> device: 0, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:31:00.0, compute capability: 8.0
+2024-04-25 17:55:19.685010: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 38423 MB memory:  -> device: 1, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:4b:00.0, compute capability: 8.0
+2024-04-25 17:55:19.685414: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:2 with 38423 MB memory:  -> device: 2, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:ca:00.0, compute capability: 8.0
+2024-04-25 17:55:19.685793: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:3 with 38423 MB memory:  -> device: 3, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:e3:00.0, compute capability: 8.0
+2024-04-25 17:55:19.691307: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:1/device:GPU:0 with 38423 MB memory:  -> device: 0, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:31:00.0, compute capability: 8.0
+2024-04-25 17:55:19.691476: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:1/device:GPU:1 with 38423 MB memory:  -> device: 1, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:4b:00.0, compute capability: 8.0
+2024-04-25 17:55:19.691635: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:1/device:GPU:2 with 38423 MB memory:  -> device: 2, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:ca:00.0, compute capability: 8.0
+2024-04-25 17:55:19.691794: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:1/device:GPU:3 with 38423 MB memory:  -> device: 3, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:e3:00.0, compute capability: 8.0
+2024-04-25 17:55:19.703155: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:272] Initialize GrpcChannelCache for job worker -> {0 -> alvis4-19:8888, 1 -> alvis4-23:8888}
+2024-04-25 17:55:19.703583: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:427] Started server with target: grpc://alvis4-23:8888
+2024-04-25 17:55:20.547746: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 38423 MB memory:  -> device: 0, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:31:00.0, compute capability: 8.0
+2024-04-25 17:55:20.549807: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 38423 MB memory:  -> device: 1, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:4b:00.0, compute capability: 8.0
+2024-04-25 17:55:20.550194: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:2 with 38423 MB memory:  -> device: 2, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:ca:00.0, compute capability: 8.0
+2024-04-25 17:55:20.550557: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:3 with 38423 MB memory:  -> device: 3, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:e3:00.0, compute capability: 8.0
+2024-04-25 17:55:20.555190: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:0/device:GPU:0 with 38423 MB memory:  -> device: 0, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:31:00.0, compute capability: 8.0
+2024-04-25 17:55:20.555360: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:0/device:GPU:1 with 38423 MB memory:  -> device: 1, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:4b:00.0, compute capability: 8.0
+2024-04-25 17:55:20.555523: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:0/device:GPU:2 with 38423 MB memory:  -> device: 2, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:ca:00.0, compute capability: 8.0
+2024-04-25 17:55:20.555681: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:0/device:GPU:3 with 38423 MB memory:  -> device: 3, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:e3:00.0, compute capability: 8.0
+2024-04-25 17:55:20.566395: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:272] Initialize GrpcChannelCache for job worker -> {0 -> alvis4-19:8888, 1 -> alvis4-23:8888}
+2024-04-25 17:55:20.566642: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:427] Started server with target: grpc://alvis4-19:8888
+Traceback (most recent call last):
+  File "/mimer/NOBACKUP/groups/deepmechalvis/andres/XAI_TurbulentChannel_optimized/main_code/main_CNN.py", line 211, in <module>
+    Unet.train_model()
+  File "/mimer/NOBACKUP/groups/deepmechalvis/andres/XAI_TurbulentChannel_optimized/main_code/py_bin/py_class/ann_config.py", line 629, in train_model
+    data_training = self.model.fit(train_data,batch_size=self.batch_size,verbose=2,
+  File "/apps/Arch/software/TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 67, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/apps/Arch/software/TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 58, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.DataLossError: 5 root error(s) found.
+  (0) DATA_LOSS:  corrupted record at 12
+	 [[{{node MultiDeviceIteratorGetNextFromShard}}]]
+	 [[RemoteCall]]
+	 [[IteratorGetNextAsOptional]]
+	 [[group_deps_1/_359]]
+  (1) DATA_LOSS:  corrupted record at 12
+	 [[{{node MultiDeviceIteratorGetNextFromShard}}]]
+	 [[RemoteCall]]
+	 [[IteratorGetNextAsOptional]]
+	 [[div_no_nan/Reshape_9/_308]]
+  (2) DATA_LOSS:  corrupted record at 12
+	 [[{{node MultiDeviceIteratorGetNextFromShard}}]]
+	 [[RemoteCall]]
+	 [[IteratorGetNextAsOptional]]
+	 [[cond/pivot_f/_3/_31]]
+  (3) DATA_LOSS:  corrupted record at 12
+	 [[{{node MultiDeviceIteratorGetNextFromShard}}]]
+	 [[RemoteCall]]
+	 [[IteratorGetNextAsOptional]]
+	 [[cond/output/_15/_114]]
+  (4) DATA_LOSS:  corrupted record at 12
+	 [[{{node MultiDeviceIteratorGetNextFromShard}}]]
+	 [[RemoteCall]]
+	 [[IteratorGetNextAsOptional]]
+0 successful operations.
+0 derived errors ignored. [Op:__inference_train_function_43557]
+
+Function call stack:
+train_function -> train_function -> train_function -> train_function -> train_function
+
+srun: error: alvis4-23: task 1: Exited with exit code 1
+WARNING:tensorflow:/job:worker/replica:0/task:1 seems down, retrying 1/3
+WARNING:tensorflow:/job:worker/replica:0/task:1 seems down, retrying 2/3
+ERROR:tensorflow:Cluster check alive failed, /job:worker/replica:0/task:1 is down, aborting collectives: failed to connect to all addresses
+Additional GRPC error information from remote target /job:worker/replica:0/task:1:
+:{"created":"@1714061001.505730624","description":"Failed to pick subchannel","file":"external/com_github_grpc_grpc/src/core/ext/filters/client_channel/client_channel.cc","file_line":3940,"referenced_errors":[{"created":"@1714061001.495703737","description":"failed to connect to all addresses","file":"external/com_github_grpc_grpc/src/core/ext/filters/client_channel/lb_policy/pick_first/pick_first.cc","file_line":392,"grpc_status":14}]}
+2024-04-25 18:03:21.505845: E tensorflow/core/common_runtime/base_collective_executor.cc:249] BaseCollectiveExecutor::StartAbort UNAVAILABLE: cluster check alive failed, /job:worker/replica:0/task:1 is down
+2024-04-25 18:03:21.506044: E tensorflow/core/common_runtime/ring_alg.cc:290] Aborting RingReduce with UNAVAILABLE: Collective ops is aborted by: cluster check alive failed, /job:worker/replica:0/task:1 is down
+The error could be from a previous operation. Restart your program to reset. [type.googleapis.com/tensorflow.DerivedStatus='']
+Traceback (most recent call last):
+  File "/mimer/NOBACKUP/groups/deepmechalvis/andres/XAI_TurbulentChannel_optimized/main_code/main_CNN.py", line 211, in <module>
+    Unet.train_model()
+  File "/mimer/NOBACKUP/groups/deepmechalvis/andres/XAI_TurbulentChannel_optimized/main_code/py_bin/py_class/ann_config.py", line 629, in train_model
+    data_training = self.model.fit(train_data,batch_size=self.batch_size,verbose=2,
+  File "/apps/Arch/software/TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 67, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/apps/Arch/software/TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 58, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.UnavailableError:  Collective ops is aborted by: cluster check alive failed, /job:worker/replica:0/task:1 is down
+The error could be from a previous operation. Restart your program to reset.
+	 [[node CollectiveReduceV2
+ (defined at /apps/Arch/software/TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1/lib/python3.9/site-packages/keras/engine/training.py:866)
+]] [Op:__inference_train_function_43780]
+
+Errors may have originated from an input operation.
+Input Source operations connected to node CollectiveReduceV2:
+In[0] concat/concat:	
+In[1] CollectiveReduceV2/group_size:	
+In[2] CollectiveReduceV2/group_key:	
+In[3] Placeholder:
+
+Operation defined at: (most recent call last)
+>>>   File "/mimer/NOBACKUP/groups/deepmechalvis/andres/XAI_TurbulentChannel_optimized/main_code/main_CNN.py", line 211, in <module>
+>>>     Unet.train_model()
+>>> 
+>>>   File "/mimer/NOBACKUP/groups/deepmechalvis/andres/XAI_TurbulentChannel_optimized/main_code/py_bin/py_class/ann_config.py", line 629, in train_model
+>>>     data_training = self.model.fit(train_data,batch_size=self.batch_size,verbose=2,
+>>> 
+>>>   File "/apps/Arch/software/TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 64, in error_handler
+>>>     return fn(*args, **kwargs)
+>>> 
+>>>   File "/apps/Arch/software/TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1/lib/python3.9/site-packages/keras/engine/training.py", line 1216, in fit
+>>>     tmp_logs = self.train_function(iterator)
+>>> 
+>>>   File "/apps/Arch/software/TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1/lib/python3.9/site-packages/keras/engine/training.py", line 878, in train_function
+>>>     return step_function(self, iterator)
+>>> 
+>>>   File "/apps/Arch/software/TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1/lib/python3.9/site-packages/keras/engine/training.py", line 866, in step_function
+>>>     data = next(iterator)
+>>> 
+srun: error: alvis4-19: task 0: Exited with exit code 1

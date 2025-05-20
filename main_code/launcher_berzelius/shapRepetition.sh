@@ -1,0 +1,6 @@
+sbatch shap_launch_P125_83pi_0_h5.sh
+sbatch shap_launch_P125_83pi_10_h5.sh
+sbatch shap_launch_P125_83pi_20_h5.sh
+sbatch shap_launch_P125_83pi_50_h5.sh
+sbatch shap_launch_P125_83pi_100_h5.sh
+sbatch shap_launch_P125_83pi_200_h5.sh
