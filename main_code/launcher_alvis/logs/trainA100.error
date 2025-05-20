@@ -1,0 +1,50 @@
++ cd ../
++ module purge
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ module load TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ srun python main_CNN.py
+2024-04-18 11:31:11.474191: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 38423 MB memory:  -> device: 0, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:31:00.0, compute capability: 8.0
+2024-04-18 11:31:11.474756: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 38423 MB memory:  -> device: 1, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:4b:00.0, compute capability: 8.0
+2024-04-18 11:31:11.475149: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:2 with 38423 MB memory:  -> device: 2, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:ca:00.0, compute capability: 8.0
+2024-04-18 11:31:11.475536: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:3 with 38423 MB memory:  -> device: 3, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:e3:00.0, compute capability: 8.0
+2024-04-18 11:31:11.481181: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:1/device:GPU:0 with 38423 MB memory:  -> device: 0, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:31:00.0, compute capability: 8.0
+2024-04-18 11:31:11.481358: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:1/device:GPU:1 with 38423 MB memory:  -> device: 1, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:4b:00.0, compute capability: 8.0
+2024-04-18 11:31:11.481523: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:1/device:GPU:2 with 38423 MB memory:  -> device: 2, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:ca:00.0, compute capability: 8.0
+2024-04-18 11:31:11.481683: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:1/device:GPU:3 with 38423 MB memory:  -> device: 3, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:e3:00.0, compute capability: 8.0
+2024-04-18 11:31:11.496049: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:272] Initialize GrpcChannelCache for job worker -> {0 -> alvis4-11:8888, 1 -> alvis4-12:8888}
+2024-04-18 11:31:11.496195: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:427] Started server with target: grpc://alvis4-12:8888
+2024-04-18 11:31:13.887344: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 38423 MB memory:  -> device: 0, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:31:00.0, compute capability: 8.0
+2024-04-18 11:31:13.889337: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 38423 MB memory:  -> device: 1, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:4b:00.0, compute capability: 8.0
+2024-04-18 11:31:13.890952: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:2 with 38423 MB memory:  -> device: 2, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:ca:00.0, compute capability: 8.0
+2024-04-18 11:31:13.891350: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:3 with 38423 MB memory:  -> device: 3, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:e3:00.0, compute capability: 8.0
+2024-04-18 11:31:13.895883: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:0/device:GPU:0 with 38423 MB memory:  -> device: 0, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:31:00.0, compute capability: 8.0
+2024-04-18 11:31:13.896058: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:0/device:GPU:1 with 38423 MB memory:  -> device: 1, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:4b:00.0, compute capability: 8.0
+2024-04-18 11:31:13.896225: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:0/device:GPU:2 with 38423 MB memory:  -> device: 2, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:ca:00.0, compute capability: 8.0
+2024-04-18 11:31:13.896385: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:0/device:GPU:3 with 38423 MB memory:  -> device: 3, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:e3:00.0, compute capability: 8.0
+2024-04-18 11:31:13.903440: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:272] Initialize GrpcChannelCache for job worker -> {0 -> alvis4-11:8888, 1 -> alvis4-12:8888}
+2024-04-18 11:31:13.903661: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:427] Started server with target: grpc://alvis4-11:8888
+2024-04-18 11:31:52.477834: I tensorflow/stream_executor/cuda/cuda_dnn.cc:366] Loaded cuDNN version 8202
+2024-04-18 11:31:53.140394: I tensorflow/stream_executor/cuda/cuda_dnn.cc:366] Loaded cuDNN version 8202
+2024-04-18 11:31:59.595612: I tensorflow/stream_executor/cuda/cuda_dnn.cc:366] Loaded cuDNN version 8202
+2024-04-18 11:32:00.470597: I tensorflow/stream_executor/cuda/cuda_dnn.cc:366] Loaded cuDNN version 8202
+2024-04-18 11:32:02.223078: I tensorflow/stream_executor/cuda/cuda_dnn.cc:366] Loaded cuDNN version 8202
+2024-04-18 11:32:03.122786: I tensorflow/stream_executor/cuda/cuda_dnn.cc:366] Loaded cuDNN version 8202
+2024-04-18 11:32:04.115130: I tensorflow/stream_executor/cuda/cuda_dnn.cc:366] Loaded cuDNN version 8202
+2024-04-18 11:32:05.073794: I tensorflow/stream_executor/cuda/cuda_dnn.cc:366] Loaded cuDNN version 8202
