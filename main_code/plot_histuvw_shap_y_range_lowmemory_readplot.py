@@ -23,9 +23,9 @@ For more information about the tangential Reynolds stress structures:
 # - folders    : file containing the folder and file structures
 # - st_data    : file containing the data of the statistics
 # -----------------------------------------------------------------------------------------------------------------------
-folder_def  = "test_deltat10" #"P125_83pi_240603_v0_definitions" #"P550_21pi_250225_v2_definitions"
+folder_def  = "P125_83pi_250507_v0_definitions" #"P125_83pi_240603_v0_definitions" #"P550_21pi_250225_v2_definitions"
 chd_str     = "channel_data"
-folders_str = "folders_msi"
+folders_str = "folders_local_tbdb4"
 st_data_str = "stats_data_shap"
 sh_data_str = "shap_data"
 tr_data_str = "training_data"
@@ -83,9 +83,9 @@ figsize_y        = 6
 colormap         = "viridis"
 colornum         = 4
 dpi              = 400
-plot_fileu       = "hist_uy_shap_83pi" # "hist_uy_shap_550_21pi" #"hist_uy_shap_83pi_scale550" #"hist_uy_shap_550_21pi" #"hist_uy_shap_83pi_dt20_h2" # "hist_uy_shap_83pi_y4" # 
-plot_filev       = "hist_vy_shap_83pi" # "hist_vy_shap_550_21pi" #"hist_vy_shap_83pi_scale550" #"hist_vy_shap_550_21pi" #"hist_vy_shap_83pi_dt20_h2" # "hist_vy_shap_83pi_y4" # 
-plot_filew       = "hist_wy_shap_83pi" # "hist_wy_shap_550_21pi" #"hist_wy_shap_83pi_scale550" #"hist_wy_shap_550_21pi" #"hist_wy_shap_83pi_dt20_h2" # "hist_wy_shap_83pi_y4" # 
+plot_fileu       = "hist_uy_shap_83pi_vor" # "hist_uy_shap_550_21pi" #"hist_uy_shap_83pi_scale550" #"hist_uy_shap_550_21pi" #"hist_uy_shap_83pi_dt20_h2" # "hist_uy_shap_83pi_y4" # 
+plot_filev       = "hist_vy_shap_83pi_vor" # "hist_vy_shap_550_21pi" #"hist_vy_shap_83pi_scale550" #"hist_vy_shap_550_21pi" #"hist_vy_shap_83pi_dt20_h2" # "hist_vy_shap_83pi_y4" # 
+plot_filew       = "hist_wy_shap_83pi_vor" # "hist_wy_shap_550_21pi" #"hist_wy_shap_83pi_scale550" #"hist_wy_shap_550_21pi" #"hist_wy_shap_83pi_dt20_h2" # "hist_wy_shap_83pi_y4" # 
 bins             = 100
 lev_min          = 1e-3
 lev_delta        = 7 #None
@@ -96,7 +96,7 @@ vmin             = -4
 vmax             = 4
 wmin             = -4.5
 wmax             = 4.5
-saveh5           =  "save_histogram_shap.h5" # "save_histogram_shap_dt20_h2.h5" # "save_histogram_shap.h5" # 
+saveh5           =  "save_histogram_shap_vor.h5" # "save_histogram_shap_dt20_h2.h5" # "save_histogram_shap.h5" # 
 
 # -----------------------------------------------------------------------------------------------------------------------
 # Data for the statistics:

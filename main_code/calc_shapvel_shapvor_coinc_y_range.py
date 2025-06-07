@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 -------------------------------------------------------------------------------------------------------------------------
-calc_streak_shap_coinc_y_range.py
+calc_uv_shap_coinc_y.py
 -------------------------------------------------------------------------------------------------------------------------
 Created on Tue Jun 18 11:30:49 2024
 
@@ -29,12 +29,12 @@ folders_str = "folders_local_tbdb4"
 st_data_str = "stats_data_shap"
 sh_data_str = "shap_data"
 tr_data_str = "training_data"
-saveh5      = "saveh5_coin_streak_shap_vor.tmp.h5"
+saveh5      = "saveh5_coin_shap_vel_shap_vor.tmp.h5"
 
 # -----------------------------------------------------------------------------------------------------------------------
 # Import packages
 # -----------------------------------------------------------------------------------------------------------------------
-from py_bin.py_class.streak_structure import streak_structure
+from py_bin.py_class.uv_structure import uv_structure
 from py_bin.py_class.shap_structure import shap_structure
 import os
 from py_bin.py_functions.calc_coinc import calc_coinc,save_coinc
@@ -58,89 +58,89 @@ exec("from "+folder_def+" import "+tr_data_str+" as tr_data")
 
 # -----------------------------------------------------------------------------------------------------------------------
 # Data for the statistics:
-#     - index            : index of the field
-#     - Hperc            : percolation index
-#     - uvw_folder       : folder of the flow field data
-#     - uvw_file         : file of the flow field data
-#     - umean_file       : file to save the mean velocity
-#     - data_folder      : folder to store the calculated data
-#     - dx               : downsampling in x
-#     - dy               : downsampling in y
-#     - dz               : downsampling in z
-#     - L_x              : length of the channel in the streamwise direction
-#     - L_y              : half-width of the channel in the wall-normal direction
-#     - L_z              : length of the channel in the spanwise direction
-#     - urms_file        : file to save the rms of the velocity
-#     - rey              : Friction Reynolds number
-#     - utau             : Friction velocity
-#     - padding          : padding of the flow field
-#     - sym_quad         : flag for using the symmetry in the direction 2 of the field for the quadrant selection
-#     - filvol           : volume for filtering the structures+
-#     - shap_folder      : folder of the shap values
-#     - shap_folder      : file of the shap values
-#     - streak_folder    : folder of the streak structures
-#     - streak_file      : file of the streak structures
-#     - padding          : padding of the field
-#     - data_type        : type of data used by the model
-#     - SHAPq_folder     : folder of the shap structures
-#     - SHAPq_file       : file of the uv structures
-#     - nsamples         : number of samples of the shap calculation
-#     - SHAPrms_file     : file of the rms of the shap
-#     - streak_shap_file : file for saving the coincidence between streaks and shap structures
+#     - index        : index of the field
+#     - Hperc        : percolation index
+#     - uvw_folder   : folder of the flow field data
+#     - uvw_file     : file of the flow field data
+#     - umean_file   : file to save the mean velocity
+#     - data_folder  : folder to store the calculated data
+#     - dx           : downsampling in x
+#     - dy           : downsampling in y
+#     - dz           : downsampling in z
+#     - L_x          : length of the channel in the streamwise direction
+#     - L_y          : half-width of the channel in the wall-normal direction
+#     - L_z          : length of the channel in the spanwise direction
+#     - urms_file    : file to save the rms of the velocity
+#     - rey          : Friction Reynolds number
+#     - utau         : Friction velocity
+#     - padding      : padding of the flow field
+#     - sym_quad     : flag for using the symmetry in the direction 2 of the field for the quadrant selection
+#     - filvol       : volume for filtering the structures+
+#     - shap_folder  : folder of the shap values
+#     - shap_folder  : file of the shap values
+#     - uv_folder    : folder of the uv structures
+#     - uv_file      : file of the uv structures
+#     - padding      : padding of the field
+#     - data_type    : type of data used by the model
+#     - SHAPq_folder : folder of the shap structures
+#     - SHAPq_file   : file of the uv structures
+#     - nsamples     : number of samples of the shap calculation
+#     - SHAPrms_file : file of the rms of the shap
 # -----------------------------------------------------------------------------------------------------------------------
-index_ini        = st_data.field_ini
-index_fin        = st_data.field_fin
-index_delta      = st_data.field_delta
-Hperc            = 1.41
-uvw_folder       = folders.uvw_folder
-uvw_file         = folders.uvw_file
-umean_file       = folders.umean_file
-data_folder      = folders.data_folder
-dx               = chd.dx
-dy               = chd.dy
-dz               = chd.dz
-L_x              = chd.L_x
-L_y              = chd.L_y
-L_z              = chd.L_z
-urms_file        = folders.urms_file
-rey              = chd.rey
-utau             = chd.utau
-padding          = chd.padding
-sym_quad         = True
-filvol           = chd.filvol
-shap_folder      = folders.shap_folder
-shap_file        = folders.shap_file
-streak_folder    = folders.streak_folder
-streak_file      = folders.streak_file
-padding          = chd.padding
-data_type        = tr_data.data_type
-plot_folder      = folders.plot_folder
-SHAPq_folder     = folders.SHAPq_folder
-SHAPq_file       = folders.SHAPq_file
-nsamples         = sh_data.nsamples
-SHAPrms_file     = folders.SHAPrms_file
-streak_shap_file = folders.streak_shap_file
+index_ini          = st_data.field_ini+1
+index_fin          = st_data.field_fin
+index_delta        = st_data.field_delta
+Hperc              = 1.41
+uvw_folder         = folders.uvw_folder
+uvw_file           = folders.uvw_file
+umean_file         = folders.umean_file
+data_folder        = folders.data_folder
+dx                 = chd.dx
+dy                 = chd.dy
+dz                 = chd.dz
+L_x                = chd.L_x
+L_y                = chd.L_y
+L_z                = chd.L_z
+urms_file          = folders.urms_file
+rey                = chd.rey
+utau               = chd.utau
+padding            = chd.padding
+sym_quad           = True
+filvol             = chd.filvol
+shap_folder        = folders.shap_folder
+shap_file          = folders.shap_file
+padding            = chd.padding
+data_type          = tr_data.data_type
+plot_folder        = folders.plot_folder
+SHAPq_folder       = folders.SHAPq_folder
+SHAPq_file         = folders.SHAPq_file
+SHAPq_vel_folder   = folders.SHAPq_vel_folder
+SHAPq_vel_file     = folders.SHAPq_vel_file
+nsamples           = sh_data.nsamples
+SHAPrms_file       = folders.SHAPrms_file
+shap_vel_shap_file = folders.shap_vel_shap_file
 
 
-vor_folder       = folders.vor_folder
-vor_file         = folders.vor_file
-vormean_file     = folders.vormean_file
-vornorm_file     = folders.vornorm_file
+vor_folder         = folders.vor_folder
+vor_file           = folders.vor_file
+vormean_file       = folders.vormean_file
+vornorm_file       = folders.vornorm_file
 
 # -----------------------------------------------------------------------------------------------------------------------
 # Create the data of the uv structure
 # -----------------------------------------------------------------------------------------------------------------------
-data_streak = {"uvw_folder":uvw_folder,"uvw_file":uvw_file,"Hperc":Hperc,"index":0,"dx":dx,
-               "dy":dy,"dz":dz,"L_x":L_x,"L_y":L_y,"L_z":L_z,"rey":rey,"utau":utau,
-               "padding":padding,"data_folder":data_folder,"umean_file":umean_file,
-               "urms_file":urms_file,"sym_quad":True,"filvol":filvol,"shap_folder":shap_folder,
-               "shap_file":shap_file,"folder":streak_folder,"file":streak_file,"padding":padding,
-               "data_type":data_type}
+
+data_shap_vel = {"uvw_folder":uvw_folder,"uvw_file":uvw_file,
+                 "vor_folder":uvw_folder,"vor_file":uvw_file,"Hperc":Hperc,"index":0,"dx":dx,
+                 "dy":dy,"dz":dz,"L_x":L_x,"L_y":L_y,"L_z":L_z,"rey":rey,"utau":utau,
+                 "padding":padding,"data_folder":data_folder,"umean_file":umean_file,"vormean_file":umean_file,
+                 "urms_file":urms_file,"sym_quad":True,"filvol":filvol,"shap_folder":shap_folder,
+                 "shap_file":shap_file,"folder":SHAPq_vel_folder,"file":SHAPq_vel_file,"padding":padding,
+                 "data_type":data_type,"nsamples":nsamples,"SHAPrms_file":SHAPrms_file}
 
 # -----------------------------------------------------------------------------------------------------------------------
 # Create the data of the shap structure
 # -----------------------------------------------------------------------------------------------------------------------
-
 data_shap = {"uvw_folder":uvw_folder,"uvw_file":uvw_file,
              "vor_folder":vor_folder,"vor_file":vor_file,"Hperc":Hperc,"index":0,"dx":dx,
              "dy":dy,"dz":dz,"L_x":L_x,"L_y":L_y,"L_z":L_z,"rey":rey,"utau":utau,
@@ -155,16 +155,16 @@ data_shap = {"uvw_folder":uvw_folder,"uvw_file":uvw_file,
 index_range = range(index_ini,index_fin,index_delta)
 for ii in index_range:
     print(ii,flush=True)
-    data_streak["index"] = ii
-    data_shap["index"]   = ii
-    streak_struc         = streak_structure(data_in=data_streak)
-    streak_struc.read_struc()
-    shap_struc           = shap_structure(data_in=data_shap)
+    data_shap_vel["index"]   = ii
+    data_shap["index"] = ii
+    shap_vel_struc     = shap_structure(data_in=data_shap_vel)
+    shap_vel_struc.read_struc()
+    shap_struc         = shap_structure(data_in=data_shap)
     shap_struc.read_struc()
-    data_out             = calc_coinc(data_in={"data_struc1":shap_struc,"data_struc2":streak_struc,"save_data":False,
-                                               "calc_coin_file":streak_shap_file,"folder":data_folder,"dy":dy,"dx":dx,
-                                               "dz":dz,"uvw_folder":uvw_folder,"uvw_file":uvw_file,"L_x":L_x,
-                                               "L_y":L_y,"L_z":L_z,"rey":rey,"utau":utau})
+    data_out           = calc_coinc(data_in={"data_struc1":shap_struc,"data_struc2":shap_vel_struc,"save_data":False,
+                                             "calc_coin_file":shap_vel_shap_file,"folder":data_folder,"dy":dy,"dx":dx,
+                                             "dz":dz,"uvw_folder":uvw_folder,"uvw_file":uvw_file,"L_x":L_x,
+                                             "L_y":L_y,"L_z":L_z,"rey":rey,"utau":utau})
     if ii == index_range[0]:
         frac_struc1  = data_out["frac_struc1"]
         frac_struc2  = data_out["frac_struc2"]
@@ -180,6 +180,9 @@ for ii in index_range:
     # -----------------------------------------------------------------------------------------------------------------
     nfiles     = ii+1
     if np.mod(nfiles,5)==0:
+        print("-"*200)
+        print("-"*200)
+        print(data_folder+'/'+saveh5,flush=True)
         fileh5save = h5py.File(data_folder+'/'+saveh5,'w')
         fileh5save.create_dataset('frac_struc1',data=frac_struc1/nfiles)
         fileh5save.create_dataset('frac_struc2',data=frac_struc2/nfiles)
@@ -192,4 +195,4 @@ frac_struc1 /= len(index_range)
 frac_struc2 /= len(index_range)
 frac_coinc  /= len(index_range)
 save_coinc(data_in={"frac_struc1":frac_struc1,"frac_struc2":frac_struc2,"frac_coinc":frac_coinc,
-                    "yplus":yplus,"calc_coin_file":streak_shap_file,"folder":data_folder})
+                    "yplus":yplus,"calc_coin_file":uv_shap_file,"folder":data_folder})

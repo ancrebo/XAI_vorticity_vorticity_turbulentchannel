@@ -925,8 +925,8 @@ class deep_model():
         # --------------------------------------------------------------------------------------------------------------
         # Import packages
         # --------------------------------------------------------------------------------------------------------------
-        from py_bin.py_functions.read_norm_velocity import read_norm_velocity
-        from py_bin.py_functions.norm_velocity import dim_velocity
+        from py_bin.py_functions.read_norm_vorticity import read_norm_vorticity
+        from py_bin.py_functions.norm_vorticity import dim_vorticity
         
         # --------------------------------------------------------------------------------------------------------------
         # Read the data
@@ -936,36 +936,36 @@ class deep_model():
         # --------------------------------------------------------------------------------------------------------------
         # Read the input field
         # --------------------------------------------------------------------------------------------------------------
-        field_in         = np.zeros((1,self.shpy,self.shpz+2*self.padding,self.shpx+2*self.padding,3),
-                                    dtype=self.data_type)
-        data_norm_in     = {"folder":self.uvw_folder,"file":self.uvw_file,"padding":self.padding,"shpx":self.shpx,
-                            "shpy":self.shpy,"shpz":self.shpz,"dx":self.dx,"dy":self.dy,"dz":self.dz,
-                            "data_folder":self.data_folder,"umean_file":self.umean_file,
-                            "unorm_file":self.unorm_file,"index":index_ii,
-                            "data_type":self.data_type,"mean_norm":self.mean_norm}
-        data_veloc_norm  = read_norm_velocity(data_in=data_norm_in)
-        norm_velocity_in = data_veloc_norm["norm_velocity"]
-        print("Time for reading the field: "+str(data_veloc_norm["time_read"]),flush=True)
-        print("Time for normalizing the field: "+str(data_veloc_norm["time_norm"]),flush=True)
-        field_out         = np.zeros((1,self.shpy,self.shpz,self.shpx,3),
+        field_in          = np.zeros((1,self.shpy,self.shpz+2*self.padding,self.shpx+2*self.padding,3),
                                      dtype=self.data_type)
-        data_norm_out     = {"folder":self.uvw_folder,"file":self.uvw_file,"padding":0,"shpx":self.shpx,
+        data_norm_in      = {"folder":self.vor_folder,"file":self.vor_file,"padding":self.padding,"shpx":self.shpx,
                              "shpy":self.shpy,"shpz":self.shpz,"dx":self.dx,"dy":self.dy,"dz":self.dz,
-                             "data_folder":self.data_folder,"umean_file":self.umean_file,
-                             "unorm_file":self.unorm_file,"index":index_ii+self.delta_pred,
+                             "data_folder":self.data_folder,"vormean_file":self.vormean_file,
+                             "vornorm_file":self.vornorm_file,"index":index_ii,
                              "data_type":self.data_type,"mean_norm":self.mean_norm}
-        data_veloc_norm   = read_norm_velocity(data_in=data_norm_out)
-        norm_velocity_out = data_veloc_norm["norm_velocity"]
-        print("Time for reading the field: "+str(data_veloc_norm["time_read"]),flush=True)
-        print("Time for normalizing the field: "+str(data_veloc_norm["time_norm"]),flush=True)
-        del data_norm_in,data_veloc_norm,data_norm_out
-        field_in[0,:,:,:,0]  = norm_velocity_in['unorm']
-        field_in[0,:,:,:,1]  = norm_velocity_in['vnorm']
-        field_in[0,:,:,:,2]  = norm_velocity_in['wnorm']
-        field_out[0,:,:,:,0] = norm_velocity_out['unorm']
-        field_out[0,:,:,:,1] = norm_velocity_out['vnorm']
-        field_out[0,:,:,:,2] = norm_velocity_out['wnorm']
-        del norm_velocity_in, norm_velocity_out
+        data_vortic_norm  = read_norm_vorticity(data_in=data_norm_in)
+        norm_vorticity_in = data_vortic_norm["norm_vorticity"]
+        print("Time for reading the field: "+str(data_vortic_norm["time_read"]),flush=True)
+        print("Time for normalizing the field: "+str(data_vortic_norm["time_norm"]),flush=True)
+        field_out          = np.zeros((1,self.shpy,self.shpz,self.shpx,3),
+                                      dtype=self.data_type)
+        data_norm_out      = {"folder":self.vor_folder,"file":self.vor_file,"padding":0,"shpx":self.shpx,
+                              "shpy":self.shpy,"shpz":self.shpz,"dx":self.dx,"dy":self.dy,"dz":self.dz,
+                              "data_folder":self.data_folder,"vormean_file":self.vormean_file,
+                              "vornorm_file":self.vornorm_file,"index":index_ii+self.delta_pred,
+                              "data_type":self.data_type,"mean_norm":self.mean_norm}
+        data_vortic_norm   = read_norm_vorticity(data_in=data_norm_out)
+        norm_vorticity_out = data_vortic_norm["norm_vorticity"]
+        print("Time for reading the field: "+str(data_vortic_norm["time_read"]),flush=True)
+        print("Time for normalizing the field: "+str(data_vortic_norm["time_norm"]),flush=True)
+        del data_norm_in,data_vortic_norm,data_norm_out
+        field_in[0,:,:,:,0]  = norm_vorticity_in['vor_x_norm']
+        field_in[0,:,:,:,1]  = norm_vorticity_in['vor_y_norm']
+        field_in[0,:,:,:,2]  = norm_vorticity_in['vor_z_norm']
+        field_out[0,:,:,:,0] = norm_vorticity_out['vor_x_norm']
+        field_out[0,:,:,:,1] = norm_vorticity_out['vor_y_norm']
+        field_out[0,:,:,:,2] = norm_vorticity_out['vor_z_norm']
+        del norm_vorticity_in, norm_vorticity_out
         
         # --------------------------------------------------------------------------------------------------------------
         # Calculate the predicted field
@@ -975,10 +975,10 @@ class deep_model():
         print("Error normalized v: "+str(np.mean((field_pred[0,:,:,:,1]-field_out[0,:,:,:,1])**2)),flush=True)
         print("Error normalized w: "+str(np.mean((field_pred[0,:,:,:,2]-field_out[0,:,:,:,2])**2)),flush=True)
         del field_in
-        data_out   = dim_velocity(data_in={"unorm":field_pred[0,:,:,:,0],"vnorm":field_pred[0,:,:,:,1],
-                                           "wnorm":field_pred[0,:,:,:,2],"folder_data":self.data_folder,
-                                           "unorm_file":self.unorm_file,"data_type":self.data_type,
-                                           "mean_norm":self.mean_norm})
+        data_out   = dim_vorticity(data_in={"vor_x_norm":field_pred[0,:,:,:,0],"vor_y_norm":field_pred[0,:,:,:,1],
+                                            "vor_z_norm":field_pred[0,:,:,:,2],"folder_data":self.data_folder,
+                                            "vornorm_file":self.vornorm_file,"data_type":self.data_type,
+                                            "mean_norm":self.mean_norm})
         return data_out
 
     def field_error(self,data_in={"index_ii":1000}):
@@ -1006,8 +1006,8 @@ class deep_model():
         # --------------------------------------------------------------------------------------------------------------
         # Import packages
         # --------------------------------------------------------------------------------------------------------------
-        from py_bin.py_functions.read_velocity import read_velocity
-        from py_bin.py_functions.normalization import read_norm
+        from py_bin.py_functions.read_vorticity import read_vorticity
+        from py_bin.py_functions.normalization_vor import read_norm
         
         # --------------------------------------------------------------------------------------------------------------
         # Read the data
@@ -1019,49 +1019,53 @@ class deep_model():
         # ----------------------------------------------------------------------------------------------------------
         dim_pred                = self.pred_field(data_in={"index_ii":index_ii})
         field_out_pred          = np.zeros((self.shpy,self.shpz,self.shpx,3),dtype=self.data_type)
-        field_out_pred[:,:,:,0] = dim_pred["uu"]
-        field_out_pred[:,:,:,1] = dim_pred["vv"]
-        field_out_pred[:,:,:,2] = dim_pred["ww"]
+        field_out_pred[:,:,:,0] = dim_pred["vor_x"]
+        field_out_pred[:,:,:,1] = dim_pred["vor_y"]
+        field_out_pred[:,:,:,2] = dim_pred["vor_z"]
         
         # --------------------------------------------------------------------------------------------------------------
         # Read the output file
         # --------------------------------------------------------------------------------------------------------------
-        field_out          = np.zeros((self.shpy,self.shpz,self.shpx,3),dtype=self.data_type)
-        data_velocity_out  = {"folder":self.uvw_folder,"file":self.uvw_file,"index":index_ii+self.delta_pred,
-                              "dx":self.dx,"dy":self.dy,"dz":self.dz,"shpx":self.shpx,"shpy":self.shpy,
-                              "shpz":self.shpz,"padding":0,"data_folder":self.data_folder,
-                              "umean_file":self.umean_file}
-        velocity_out       = read_velocity(data_velocity_out)
-        field_out[:,:,:,0] = velocity_out['uu']
-        field_out[:,:,:,1] = velocity_out['vv']
-        field_out[:,:,:,2] = velocity_out['ww']
-        del data_velocity_out
+        field_out           = np.zeros((self.shpy,self.shpz,self.shpx,3),dtype=self.data_type)
+        data_vorticity_out  = {"folder":self.vor_folder,"file":self.vor_file,"index":index_ii+self.delta_pred,
+                               "dx":self.dx,"dy":self.dy,"dz":self.dz,"shpx":self.shpx,"shpy":self.shpy,
+                               "shpz":self.shpz,"padding":0,"data_folder":self.data_folder,
+                               "vormean_file":self.umean_file}
+        vorticity_out       = read_vorticity(data_vorticity_out)
+        field_out[:,:,:,0]  = vorticity_out['vor_x']
+        field_out[:,:,:,1]  = vorticity_out['vor_y']
+        field_out[:,:,:,2]  = vorticity_out['vor_z']
+        del data_vorticity_out
         
         # --------------------------------------------------------------------------------------------------------------
         # Calculate the error
         # --------------------------------------------------------------------------------------------------------------
-        data_norm = read_norm(data_in={"folder":self.data_folder,"file":self.umax_file})
-        uref      = np.max([abs(data_norm["uumax"]),abs(data_norm["uumin"])])
-        vref      = np.max([abs(data_norm["vvmax"]),abs(data_norm["vvmin"])])
-        wref      = np.max([abs(data_norm["wwmax"]),abs(data_norm["wwmin"])])
+        data_norm = read_norm(data_in={"folder":self.data_folder,"file":self.vornorm_file})
+        vor_x_ref = np.max([abs(data_norm["vor_x_max"]),abs(data_norm["vor_x_min"])])
+        vor_y_ref = np.max([abs(data_norm["vor_y_max"]),abs(data_norm["vor_y_min"])])
+        vor_z_ref = np.max([abs(data_norm["vor_z_max"]),abs(data_norm["vor_z_min"])])
         errorfun  = abs(field_out-field_out_pred)
         
         # --------------------------------------------------------------------------------------------------------------
         # Generate the output
         # --------------------------------------------------------------------------------------------------------------
         data_out          = {}
-        data_out["err_u"] = errorfun[:,:,:,0]/uref
-        data_out["err_v"] = errorfun[:,:,:,1]/vref
-        data_out["err_w"] = errorfun[:,:,:,2]/wref
+        print("error mean",np.mean(errorfun[:,:,:,:],axis=(0,1,2)),flush=True)
+        print("norm x ",vor_x_ref,flush=True)
+        print("norm y ",vor_y_ref,flush=True)
+        print("norm z ",vor_z_ref,flush=True)
+        data_out["err_u"] = errorfun[:,:,:,0]/vor_x_ref
+        data_out["err_v"] = errorfun[:,:,:,1]/vor_y_ref
+        data_out["err_w"] = errorfun[:,:,:,2]/vor_z_ref
         del errorfun
-        data_out["pre_u"] = dim_pred["uu"]
-        data_out["pre_v"] = dim_pred["vv"]
-        data_out["pre_w"] = dim_pred["ww"]
+        data_out["pre_u"] = dim_pred["vor_x"]
+        data_out["pre_v"] = dim_pred["vor_y"]
+        data_out["pre_w"] = dim_pred["vor_z"]
         del dim_pred
-        data_out["sim_u"] = velocity_out["uu"]
-        data_out["sim_v"] = velocity_out["vv"]
-        data_out["sim_w"] = velocity_out["ww"]
-        del velocity_out
+        data_out["sim_u"] = vorticity_out["vor_x"]
+        data_out["sim_v"] = vorticity_out["vor_y"]
+        data_out["sim_w"] = vorticity_out["vor_z"]
+        del vorticity_out
         return data_out
                          
     def pred_error(self):
@@ -1105,6 +1109,9 @@ class deep_model():
         
         for index_ii in interval:
             data_error = self.field_error(data_in={"index_ii":index_ii,"vol":vol})
+            print("err_u:",np.max(data_error["err_u"]),flush=True)
+            print("err_v:",np.max(data_error["err_v"]),flush=True)
+            print("err_w:",np.max(data_error["err_w"]),flush=True)
             erru       = np.sum(np.multiply(data_error["err_u"],vol))
             errv       = np.sum(np.multiply(data_error["err_v"],vol))
             errw       = np.sum(np.multiply(data_error["err_w"],vol))

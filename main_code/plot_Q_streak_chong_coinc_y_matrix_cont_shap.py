@@ -23,9 +23,9 @@ For more information about the tangential Reynolds stress structures:
 # - folders    : file containing the folder and file structures
 # - st_data    : file containing the data of the statistics
 # -----------------------------------------------------------------------------------------------------------------------
-folder_def  = "P550_21pi_250225_v2_definitions" #"P125_83pi_240603_v0_definitions" # 
+folder_def  = "P125_83pi_250507_v0_definitions" #"P125_83pi_240603_v0_definitions" # 
 chd_str     = "channel_data"
-folders_str = "folders_msi"
+folders_str = "folders_local_tbdb4"
 st_data_str = "stats_data"
 sh_data_str = "shap_data"
 tr_data_str = "training_data"
@@ -84,7 +84,7 @@ struc1_lab       = "Qs"
 struc2_lab       = "Streaks"
 struc3_lab       = "Vortices"
 plot_coin_folder = "3struc_shap_box_ratio"
-plot_coin_file   = "re550_3struc_shap_box_ratio"
+plot_coin_file   = "vor_3struc_shap_box_ratio"
 ylabelbar        = "$V_i/V_{shap}$"
 yminbar          = 0
 ymaxbar          = 1.5
@@ -165,6 +165,11 @@ umax_file        = folders.umax_file
 calc_coin_tot    = folders.uv_chong_streak_file
 
 
+vor_folder       = folders.vor_folder
+vor_file         = folders.vor_file
+vormean_file     = folders.vormean_file
+vornorm_file     = folders.vornorm_file
+
 # -----------------------------------------------------------------------------------------------------------------------
 # Create the data of the uv structure
 # -----------------------------------------------------------------------------------------------------------------------
@@ -201,9 +206,13 @@ chong_struc.read_struc()
 # -----------------------------------------------------------------------------------------------------------------------
 # Create the data of the shap structure
 # -----------------------------------------------------------------------------------------------------------------------
-shap_struc = shap_structure(data_in={"uvw_folder":uvw_folder,"uvw_file":uvw_file,"Hperc":Hperc,"index":index,"dx":dx,
+
+
+shap_struc = shap_structure(data_in={"uvw_folder":uvw_folder,"uvw_file":uvw_file,
+                                     "vor_folder":vor_folder,"vor_file":vor_file,"Hperc":Hperc,"index":index,"dx":dx,
                                      "dy":dy,"dz":dz,"L_x":L_x,"L_y":L_y,"L_z":L_z,"rey":rey,"utau":utau,
                                      "padding":padding,"data_folder":data_folder,"umean_file":umean_file,
+                                     "vormean_file":vormean_file,
                                      "urms_file":urms_file,"sym_quad":True,"filvol":filvol,"shap_folder":shap_folder,
                                      "shap_file":shap_file,"folder":SHAPq_folder,"file":SHAPq_file,"padding":padding,
                                      "data_type":data_type,"nsamples":nsamples,"SHAPrms_file":SHAPrms_file})

@@ -23,14 +23,13 @@ For more information about the tangential Reynolds stress structures:
 # - folders    : file containing the folder and file structures
 # - st_data    : file containing the data of the statistics
 # -----------------------------------------------------------------------------------------------------------------------
-
-folder_def  = "P125_83pi_250507_v0_definitions"
+folder_def  = "P125_83pi_250507_v0_definitions" #"d20240703_definitions"
 chd_str     = "channel_data"
 folders_str = "folders_local_tbdb4"
 st_data_str = "stats_data_shap"
 sh_data_str = "shap_data"
 tr_data_str = "training_data"
-saveh5      = "saveh5_coin_chong_shap_vor.tmp.h5"
+saveh5      = "saveh5_coin_shap_vel_shap_vor.tmp.h5"
 
 # -----------------------------------------------------------------------------------------------------------------------
 # Import packages
@@ -89,108 +88,57 @@ exec("from "+folder_def+" import "+tr_data_str+" as tr_data")
 #     - SHAPrms_file     : file of the rms of the shap
 #     - chong_shap_file  : file for saving the coincidence between chongs and shap structures
 # -----------------------------------------------------------------------------------------------------------------------
-index_ini        = st_data.field_ini
-index_fin        = st_data.field_fin
-index_delta      = st_data.field_delta
-Hperc            = 1.41
-uvw_folder       = folders.uvw_folder
-uvw_file         = folders.uvw_file
-umean_file       = folders.umean_file
-data_folder      = folders.data_folder
-dx               = chd.dx
-dy               = chd.dy
-dz               = chd.dz
-L_x              = chd.L_x
-L_y              = chd.L_y
-L_z              = chd.L_z
-urms_file        = folders.urms_file
-rey              = chd.rey
-utau             = chd.utau
-padding          = chd.padding
-sym_quad         = True
-filvol           = chd.filvol
-shap_folder      = folders.shap_folder
-shap_file        = folders.shap_file
-chong_folder     = folders.chong_folder
-chong_file       = folders.chong_file
-padding          = chd.padding
-data_type        = tr_data.data_type
-plot_folder      = folders.plot_folder
-SHAPq_folder     = folders.SHAPq_folder
-SHAPq_file       = folders.SHAPq_file
-nsamples         = sh_data.nsamples
-SHAPrms_file     = folders.SHAPrms_file
-chong_shap_file = folders.chong_shap_file
+index_ini          = st_data.field_ini
+index_fin          = st_data.field_fin
+index_delta        = st_data.field_delta
+Hperc              = 1.41
+uvw_folder         = folders.uvw_folder
+uvw_file           = folders.uvw_file
+umean_file         = folders.umean_file
+data_folder        = folders.data_folder
+dx                 = chd.dx
+dy                 = chd.dy
+dz                 = chd.dz
+L_x                = chd.L_x
+L_y                = chd.L_y
+L_z                = chd.L_z
+urms_file          = folders.urms_file
+rey                = chd.rey
+utau               = chd.utau
+padding            = chd.padding
+sym_quad           = True
+filvol             = chd.filvol
+shap_folder        = folders.shap_folder
+shap_file          = folders.shap_file
+padding            = chd.padding
+data_type          = tr_data.data_type
+plot_folder        = folders.plot_folder
+SHAPq_folder       = folders.SHAPq_folder
+SHAPq_file         = folders.SHAPq_file
+SHAPq_vel_folder   = folders.SHAPq_vel_folder
+SHAPq_vel_file     = folders.SHAPq_vel_file
+nsamples           = sh_data.nsamples
+SHAPrms_file       = folders.SHAPrms_file
+shap_vel_shap_file = folders.shap_vel_shap_file
 
+vor_folder         = folders.vor_folder
+vor_file           = folders.vor_file
+vormean_file       = folders.vormean_file
+vornorm_file       = folders.vornorm_file
 
-vor_folder       = folders.vor_folder
-vor_file         = folders.vor_file
-vormean_file     = folders.vormean_file
-vornorm_file     = folders.vornorm_file
-
-# -----------------------------------------------------------------------------------------------------------------------
-# Create the data of the uv structure
-# -----------------------------------------------------------------------------------------------------------------------
-data_chong  = {"uvw_folder":uvw_folder,"uvw_file":uvw_file,"Hperc":Hperc,"index":0,"dx":dx,
-               "dy":dy,"dz":dz,"L_x":L_x,"L_y":L_y,"L_z":L_z,"rey":rey,"utau":utau,
-               "padding":padding,"data_folder":data_folder,"umean_file":umean_file,
-               "urms_file":urms_file,"sym_quad":True,"filvol":filvol,"shap_folder":shap_folder,
-               "shap_file":shap_file,"folder":chong_folder,"file":chong_file,"padding":padding,
-               "data_type":data_type}
-
-# -----------------------------------------------------------------------------------------------------------------------
-# Create the data of the shap structure
-# -----------------------------------------------------------------------------------------------------------------------
-
-data_shap = {"uvw_folder":uvw_folder,"uvw_file":uvw_file,
-             "vor_folder":vor_folder,"vor_file":vor_file,"Hperc":Hperc,"index":0,"dx":dx,
-             "dy":dy,"dz":dz,"L_x":L_x,"L_y":L_y,"L_z":L_z,"rey":rey,"utau":utau,
-             "padding":padding,"data_folder":data_folder,"umean_file":umean_file,"vormean_file":vormean_file,
-             "urms_file":urms_file,"sym_quad":True,"filvol":filvol,"shap_folder":shap_folder,
-             "shap_file":shap_file,"folder":SHAPq_folder,"file":SHAPq_file,"padding":padding,
-             "data_type":data_type,"nsamples":nsamples,"SHAPrms_file":SHAPrms_file}
 
 # -----------------------------------------------------------------------------------------------------------------------
 # calculate the coincidence between the uv and the shap structures as a function of y
 # -----------------------------------------------------------------------------------------------------------------------
-index_range = range(index_ini,index_fin,index_delta)
-for ii in index_range:
-    print(ii,flush=True)
-    data_chong["index"]  = ii
-    data_shap["index"]   = ii
-    chong_struc          = chong_structure(data_in=data_chong)
-    chong_struc.read_struc()
-    shap_struc           = shap_structure(data_in=data_shap)
-    shap_struc.read_struc()
-    data_out             = calc_coinc(data_in={"data_struc1":shap_struc,"data_struc2":chong_struc,"save_data":False,
-                                               "calc_coin_file":chong_shap_file,"folder":data_folder,"dy":dy,"dx":dx,
-                                               "dz":dz,"uvw_folder":uvw_folder,"uvw_file":uvw_file,"L_x":L_x,
-                                               "L_y":L_y,"L_z":L_z,"rey":rey,"utau":utau})
-    if ii == index_range[0]:
-        frac_struc1  = data_out["frac_struc1"]
-        frac_struc2  = data_out["frac_struc2"]
-        frac_coinc   = data_out["frac_coinc"]
-        yplus        = data_out["yplus"]
-    else:
-        frac_struc1 += data_out["frac_struc1"]
-        frac_struc2 += data_out["frac_struc2"]
-        frac_coinc  += data_out["frac_coinc"]
-        
-    # -----------------------------------------------------------------------------------------------------------------
-    # Save the data
-    # -----------------------------------------------------------------------------------------------------------------
-    nfiles     = ii+1
-    if np.mod(nfiles,5)==0:
-        fileh5save = h5py.File(data_folder+'/'+saveh5,'w')
-        fileh5save.create_dataset('frac_struc1',data=frac_struc1/nfiles)
-        fileh5save.create_dataset('frac_struc2',data=frac_struc2/nfiles)
-        fileh5save.create_dataset('frac_coinc',data=frac_coinc/nfiles)
-        fileh5save.create_dataset('yplus',data=yplus)
-        fileh5save.create_dataset('nfields',data=nfiles)
-        fileh5save.close()
-    print("Iteration "+str(ii),flush=True)
-frac_struc1 /= len(index_range)
-frac_struc2 /= len(index_range)
-frac_coinc  /= len(index_range)
+
+fileh5save  = h5py.File(data_folder+'/'+saveh5,'r')
+nfields     = np.array(fileh5save['nfields'])
+frac_struc1 = np.array(fileh5save['frac_struc1'])
+frac_struc2 = np.array(fileh5save['frac_struc2'])
+frac_coinc  = np.array(fileh5save['frac_coinc'])
+yplus       = np.array(fileh5save['yplus'])
+fileh5save.close()
+
+# shap_vel_shap_file = shap_vel_shap_file.replace(".txt","_h5save.txt")
 save_coinc(data_in={"frac_struc1":frac_struc1,"frac_struc2":frac_struc2,"frac_coinc":frac_coinc,
-                    "yplus":yplus,"calc_coin_file":chong_shap_file,"folder":data_folder})
+                    "yplus":yplus,"calc_coin_file":shap_vel_shap_file,"folder":data_folder})

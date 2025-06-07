@@ -23,9 +23,9 @@ For more information about the tangential Reynolds stress structures:
 # - folders    : file containing the folder and file structures
 # - st_data    : file containing the data of the statistics
 # -----------------------------------------------------------------------------------------------------------------------
-folder_def  = "P550_21pi_250225_v2_definitions" #"d20240703_definitions"
+folder_def  = "P125_83pi_250507_v0_definitions" #"d20240703_definitions"
 chd_str     = "channel_data"
-folders_str = "folders_msi"
+folders_str = "folders_local_tbdb4"
 st_data_str = "stats_data"
 sh_data_str = "shap_data"
 tr_data_str = "training_data"

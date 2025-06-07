@@ -23,13 +23,13 @@ For more information about the tangential Reynolds stress structures:
 # - folders    : file containing the folder and file structures
 # - st_data    : file containing the data of the statistics
 # -----------------------------------------------------------------------------------------------------------------------
-folder_def  = "test_deltat10" #"d20240703_definitions"
+folder_def  = "P125_83pi_250507_v0_definitions" #"d20240703_definitions"
 chd_str     = "channel_data"
-folders_str = "folders_msi"
+folders_str = "folders_local_tbdb4"
 st_data_str = "stats_data_shap"
 sh_data_str = "shap_data"
 tr_data_str = "training_data"
-saveh5      = "saveh5_coin_uv_shap_deltat10.tmp.h5"
+saveh5      = "saveh5_coin_uv_shap_vor.tmp.h5"
 
 # -----------------------------------------------------------------------------------------------------------------------
 # Import packages
@@ -154,6 +154,6 @@ frac_coinc  = np.array(fileh5save['frac_coinc'])
 yplus       = np.array(fileh5save['yplus'])
 fileh5save.close()
 
-uv_shap_file = uv_shap_file.replace(".txt","_h5save.txt")
+# uv_shap_file = uv_shap_file.replace(".txt","_h5save.txt")
 save_coinc(data_in={"frac_struc1":frac_struc1,"frac_struc2":frac_struc2,"frac_coinc":frac_coinc,
                     "yplus":yplus,"calc_coin_file":uv_shap_file,"folder":data_folder})

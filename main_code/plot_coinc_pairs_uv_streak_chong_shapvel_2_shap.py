@@ -46,16 +46,18 @@ fig_ylabel2     = "Coincidence (%)"
 fig_fontsize    = 24
 fig_figsize_x   = 16
 fig_figsize_y   = 5
-fig_colormap    = "viridis"
-fig_colornum    = 4
-fig_name        = "coinc_pairs_uv_streak_chong_2_shap_vor"
+fig_colormap    = "tab10"#"viridis"
+fig_colornum    = 10
+fig_name        = "coinc_pairs_uv_streak_chong_shapvel_2_shap_vor"
 fig_dpi         = 400
-fig_struc1a_lab = "SHAP"
+fig_struc1a_lab = "SHAP (vort.)"
 fig_struc1b_lab = "Qs"
-fig_struc2a_lab = "SHAP"
+fig_struc2a_lab = "SHAP (vort.)"
 fig_struc2b_lab = "Streaks"
-fig_struc3a_lab = "SHAP"
+fig_struc3a_lab = "SHAP (vort.)"
 fig_struc3b_lab = "Vortices"
+fig_struc4a_lab = "SHAP (vort.)"
+fig_struc4b_lab = "SHAP (vel.)"
 fig_linewidth   = 3
 
 
@@ -86,7 +88,7 @@ import matplotlib
 from py_bin.py_plots.plot_histuvw_y import plot_histuvw_y
 from py_bin.py_plots.plotstruc3d import plotstruc3d, plotstruc3d_separe
 from py_bin.py_class.flow_field import flow_field
-from py_bin.py_plots.plot_coinc import plot_coinc_3coinc
+from py_bin.py_plots.plot_coinc import plot_coinc_4coinc
 from py_bin.py_functions.read_velocity import read_velocity
 import numpy as np
 
@@ -124,20 +126,22 @@ exec("from "+folder_def+" import "+tr_data_str+" as tr_data")
 #     - L_z         : dimension of the channel in the spanwise direction
 #     - file_trj    : file containing the data of Torroja
 # -----------------------------------------------------------------------------------------------------------------------
-data_folder = folders.data_folder
-plot_folder = folders.plot_folder
-file_uv     = folders.uv_shap_file
-file_streak = folders.streak_shap_file
-file_chong  = folders.chong_shap_file
+data_folder  = folders.data_folder
+plot_folder  = folders.plot_folder
+file_uv      = folders.uv_shap_file
+file_streak  = folders.streak_shap_file
+file_chong   = folders.chong_shap_file
+file_shapvel = folders.shap_vel_shap_file
 
 # -----------------------------------------------------------------------------------------------------------------------
 # Create the plot
 # -----------------------------------------------------------------------------------------------------------------------
-plot_format_data = {"file_1":file_uv,"file_2":file_streak,"file_3":file_chong,"folder":data_folder,
+plot_format_data = {"file_1":file_uv,"file_2":file_streak,"file_3":file_chong,"file_4":file_shapvel,"folder":data_folder,
                     "plot_folder":plot_folder,"xlabel":fig_xlabel,"ylabel":fig_ylabel,"ylabel2":fig_ylabel2,
                     "fontsize":fig_fontsize,"figsize_x":fig_figsize_x,"figsize_y":fig_figsize_y,
                     "colormap":fig_colormap,"colornum":fig_colornum,"fig_name":fig_name,"dpi":fig_dpi,
                     "struc1a_lab":fig_struc1a_lab,"struc1b_lab":fig_struc1b_lab,"struc2a_lab":fig_struc2a_lab,
                     "struc2b_lab":fig_struc2b_lab,"struc3a_lab":fig_struc3a_lab,"struc3b_lab":fig_struc3b_lab,
+                    "struc4a_lab":fig_struc4a_lab,"struc4b_lab":fig_struc4b_lab,
                     "linewidth":fig_linewidth}
-plot_coinc_3coinc(data_in=plot_format_data)
+plot_coinc_4coinc(data_in=plot_format_data)

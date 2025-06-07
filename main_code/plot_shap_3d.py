@@ -36,7 +36,7 @@ figsize_x   = 8
 figsize_y   = 7
 colormap    = "viridis"
 colornum    = 4
-fig_name    = "shap3d_P550_21pi" # "shap3d_83pi_dt20_h2_v3" # 
+fig_name    = "shap3d_P125_83pi_vor" # "shap3d_83pi_dt20_h2_v3" # 
 dpi         = 200
 padtext_x   = 50
 padtext_y   = 10
@@ -49,9 +49,9 @@ padtext_z   = 7
 # - folders    : file containing the folder and file structures
 # - st_data    : file containing the data of the statistics
 # -----------------------------------------------------------------------------------------------------------------------
-folder_def  = "P550_21pi_250225_v2_definitions" # "test_deltat20" # "P125_83pi_240603_v0_definitions"
+folder_def  = "P125_83pi_250507_v0_definitions" # "test_deltat20" # "P125_83pi_240603_v0_definitions"
 chd_str     = "channel_data"
-folders_str = "folders_msi"
+folders_str = "folders_local_tbdb4"
 st_data_str = "stats_data"
 sh_data_str = "shap_data"
 tr_data_str = "training_data"
@@ -135,13 +135,20 @@ plot_folder  = folders.plot_folder
 nsamples     = sh_data.nsamples
 SHAPrms_file = folders.SHAPrms_file
 
+vor_folder   = folders.vor_folder
+vor_file     = folders.vor_file
+vormean_file = folders.vormean_file
+vornorm_file = folders.vornorm_file
+
 # -----------------------------------------------------------------------------------------------------------------------
 # Create the data of the structure
 # -----------------------------------------------------------------------------------------------------------------------
 shap_struc = shap_structure(data_in={"uvw_folder":uvw_folder,"uvw_file":uvw_file,"Hperc":Hperc,"index":index,"dx":dx,
+                                     "vor_folder":vor_folder,"vor_file":vor_file,
                                      "dy":dy,"dz":dz,"L_x":L_x,"L_y":L_y,"L_z":L_z,"rey":rey,"utau":utau,
                                      "padding":padding,"data_folder":data_folder,"umean_file":umean_file,
                                      "urms_file":urms_file,"sym_quad":True,"filvol":filvol,"shap_folder":shap_folder,
+                                     "vormean_file":vormean_file,
                                      "shap_file":shap_file,"folder":SHAPq_folder,"file":SHAPq_file,"padding":padding,
                                      "data_type":data_type,"nsamples":nsamples,"SHAPrms_file":SHAPrms_file})
 shap_struc.read_struc()
