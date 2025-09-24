@@ -268,6 +268,8 @@ for ii in index_range:
     uu            = velocity_data["uu"]/utau
     vv            = velocity_data["vv"]/utau
     ww            = velocity_data["ww"]/utau
+    vv[flowfield.yu_s:,:,:] *= -1 
+    ww[flowfield.yu_s:,:,:] *= -1 
     
     # -----------------------------------------------------------------------------------------------------------------------
     # Velocities of the structues
