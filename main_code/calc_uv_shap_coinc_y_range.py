@@ -23,13 +23,13 @@ For more information about the tangential Reynolds stress structures:
 # - folders    : file containing the folder and file structures
 # - st_data    : file containing the data of the statistics
 # -----------------------------------------------------------------------------------------------------------------------
-folder_def  = "P125_83pi_240603_v0_definitions"
+folder_def  = "P125_83pi_250507_v0_definitions"
 chd_str     = "channel_data"
-folders_str = "folders_local"
+folders_str = "folders_local_tbdb4"
 st_data_str = "stats_data_shap"
 sh_data_str = "shap_data"
 tr_data_str = "training_data"
-saveh5      = "saveh5_coin_uv_shap.tmp.h5"
+saveh5      = "saveh5_coin_uv_shap_vor.tmp.h5"
 
 # -----------------------------------------------------------------------------------------------------------------------
 # Import packages
@@ -120,6 +120,12 @@ nsamples     = sh_data.nsamples
 SHAPrms_file = folders.SHAPrms_file
 uv_shap_file = folders.uv_shap_file
 
+
+vor_folder       = folders.vor_folder
+vor_file         = folders.vor_file
+vormean_file     = folders.vormean_file
+vornorm_file     = folders.vornorm_file
+
 # -----------------------------------------------------------------------------------------------------------------------
 # Create the data of the uv structure
 # -----------------------------------------------------------------------------------------------------------------------
@@ -133,9 +139,10 @@ data_uv = {"uvw_folder":uvw_folder,"uvw_file":uvw_file,"Hperc":Hperc,"index":0,"
 # -----------------------------------------------------------------------------------------------------------------------
 # Create the data of the shap structure
 # -----------------------------------------------------------------------------------------------------------------------
-data_shap = {"uvw_folder":uvw_folder,"uvw_file":uvw_file,"Hperc":Hperc,"index":0,"dx":dx,
+data_shap = {"uvw_folder":uvw_folder,"uvw_file":uvw_file,
+             "vor_folder":vor_folder,"vor_file":vor_file,"Hperc":Hperc,"index":0,"dx":dx,
              "dy":dy,"dz":dz,"L_x":L_x,"L_y":L_y,"L_z":L_z,"rey":rey,"utau":utau,
-             "padding":padding,"data_folder":data_folder,"umean_file":umean_file,
+             "padding":padding,"data_folder":data_folder,"umean_file":umean_file,"vormean_file":vormean_file,
              "urms_file":urms_file,"sym_quad":True,"filvol":filvol,"shap_folder":shap_folder,
              "shap_file":shap_file,"folder":SHAPq_folder,"file":SHAPq_file,"padding":padding,
              "data_type":data_type,"nsamples":nsamples,"SHAPrms_file":SHAPrms_file}

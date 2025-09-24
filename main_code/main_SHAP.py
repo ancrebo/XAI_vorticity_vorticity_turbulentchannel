@@ -28,7 +28,7 @@ In order to launch the code the following variables need to be fulfilled:
 #     - tr_data_str : file containing the data of the training
 #     - sh_data_str : file containing the data for the SHAP values 
 # ----------------------------------------------------------------------------------------------------------------------
-folder_def  = "d20240703_definitions"#"P125_83pi_240603_v0_definitions"
+folder_def  = "P125_83pi_250507_v0_definitions"#"P125_83pi_240603_v0_definitions"
 chd_str     = "channel_data"
 folders_str = "folders"
 tr_data_str = "training_data"
@@ -97,6 +97,10 @@ umean_file      = folders.umean_file
 unorm_file      = folders.unorm_file
 uvw_folder_tf   = folders.uvw_folder_tf
 uvw_folderii_tf = folders.uvw_folderii_tf
+vor_folder      = folders.vor_folder
+vor_file        = folders.vor_file
+vormean_file    = folders.vormean_file
+vornorm_file    = folders.vornorm_file
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Define the data for the training.
@@ -151,8 +155,10 @@ repeat_exist    = sh_data.repeat_exist
 # Define dict containing the information needed for the shap model
 # ----------------------------------------------------------------------------------------------------------------------
 data_shap = {"shap_folder":shap_folder,"shap_file":shap_file,"uvw_folder":uvw_folder,"uvw_file":uvw_file,
-             "padding":padding,"dx":dx,"dy":dy,"dz":dz,"data_folder":data_folder,"umean_file":umean_file,
-             "unorm_file":unorm_file,"L_x":L_x,"L_z":L_z,"L_y":L_y,"rey":rey,"utau":utau,"ngpu":ngpu,
+             "vor_folder":vor_folder,"vor_file":vor_file,"padding":padding,"dx":dx,"dy":dy,"dz":dz,
+             "data_folder":data_folder,"umean_file":umean_file,
+             "unorm_file":unorm_file,"vormean_file":vormean_file,"vornorm_file":vornorm_file,
+             "L_x":L_x,"L_z":L_z,"L_y":L_y,"rey":rey,"utau":utau,"ngpu":ngpu,
              "field_ini":field_ini,"field_fin":field_fin,"field_delta":field_delta,"model_folder":model_folder,
              "model_read":model_read,"nfil":nfil,"stride":stride,"activation":activation,"kernel":kernel,
              "pooling":pooling,"delta_pred":delta_pred,"nsamples":nsamples,"nsamples_max":nsamples_max,

@@ -185,6 +185,8 @@ velocity_data = read_velocity(data_in={"folder":uvw_folder,"file":uvw_file,"inde
 uu            = velocity_data["uu"]
 vv            = velocity_data["vv"]
 ww            = velocity_data["ww"]
+vv[flowfield.yu_s:,:,:] *= -1 
+ww[flowfield.yu_s:,:,:] *= -1 
 
 # -----------------------------------------------------------------------------------------------------------------------
 # Velocities of the structues

@@ -77,8 +77,10 @@ class shap_config():
     def __init__(self,data_in = {"shap_folder":"../../P125_21pi_vu_SHAP_gradient/",
                                  "shap_file":"P125_21pi_vu_nsamples$NSAMPLES$.$INDEX$.h5.shap",
                                  "uvw_folder":"../../P125_21pi_vu/","uvw_file":"P125_21pi_vu.$INDEX$.h5.uvw",
+                                 "vor_folder":"../../P125_21pi_vu/","vor_file":"P125_21pi_vu.$INDEX$.h5.uvw",
                                  "padding":15,"dx":1,"dy":1,"dz":1,"data_folder":"data","umean_file":"Umean.txt",
-                                 "unorm_file":"Unorm.txt","L_x":2*np.pi,"L_z":np.pi,"L_y":1,
+                                 "unorm_file":"Unorm.txt","vornorm_file":"norm_vor.txt","vormean_file":"vormean.txt",
+                                 "L_x":2*np.pi,"L_z":np.pi,"L_y":1,
                                  "rey":125,"utau":0.060523258443963,"ngpu":None,"field_ini":1000,"field_fin":7000,
                                  "field_delta":1,"model_folder":"models","model_read":"trained_model.h5","nfil":16,
                                  "stride":1,"activation":"relu","kernel":3,"pooling":2,"delta_pred":1,"nsamples":200,
@@ -99,8 +101,10 @@ class shap_config():
             The default is {"shap_folder":"../../P125_21pi_vu_SHAP_gradient/",
                             "shap_file":"P125_21pi_vu_nsamples$NSAMPLES$.$INDEX$.h5.shap",
                             "uvw_folder":"../../P125_21pi_vu/","uvw_file":"P125_21pi_vu.$INDEX$.h5.uvw",
+                            "vor_folder":"../../P125_21pi_vu/","vor_file":"P125_21pi_vu.$INDEX$.h5.uvw",
                             "padding":15,"dx":1,"dy":1,"dz":1,"data_folder":"data","umean_file":"Umean.txt",
-                            "unorm_file":"Unorm.txt","L_x":2*np.pi,"L_z":np.pi,"L_y":1,
+                            "unorm_file":"Unorm.txt","vornorm_file":"norm_vor.txt","vormean_file":"vormean.txt",
+                            "L_x":2*np.pi,"L_z":np.pi,"L_y":1,
                             "rey":125,"utau":0.060523258443963,"ngpu":None,"field_ini":1000,"field_fin":7000,
                             "field_delta":1,"model_folder":"models","model_read":"trained_model.h5","nfil":16,
                             "stride":1,"activation":"relu","kernel":3,"pooling":2,"delta_pred":1,"nsamples":200,
@@ -113,6 +117,8 @@ class shap_config():
                 - shap_file       : file for the shap values
                 - uvw_folder      : folder of the flow fields
                 - uvw_file        : file of the flow fields
+                - vor_folder      : folder of the vorticity fields
+                - vor_file        : file name of the vorticity fileds without index
                 - padding         : padding of the flow field
                 - dx              : downsampling of the flow field in the streamwise direction
                 - dy              : downsampling of the flow field in the wall-normal direction
@@ -120,6 +126,8 @@ class shap_config():
                 - data_folder     : folder of the generated data
                 - umean_file      : file of the mean velocity
                 - unorm_file      : file of the normalization
+                - vornorm_file    : file for the normalization of the vorticity
+                - vormean_file    : file for the mean vorticity
                 - L_x             : size of the channel in the streamwise direction
                 - L_z             : size of the channel in the spanwise direction
                 - L_y             : size of the channel in the wall-normal direction
@@ -170,6 +178,8 @@ class shap_config():
         self.shap_file       = str(data_in["shap_file"])         # File to the shap values
         self.uvw_folder      = str(data_in["uvw_folder"])        # Folder path from the main file
         self.uvw_file        = str(data_in["uvw_file"])          # File name without the index
+        self.vor_folder      = str(data_in["vor_folder"])        # Folder path from the main file
+        self.vor_file        = str(data_in["vor_file"])          # File name without the index
         self.padding         = int(data_in["padding"])           # Padding of the field
         self.dx              = int(data_in["dx"])                # Downsampling in x
         self.dy              = int(data_in["dy"])                # Downsampling in y
@@ -177,6 +187,8 @@ class shap_config():
         self.data_folder     = str(data_in["data_folder"])       # Folder for the generated data
         self.umean_file      = str(data_in["umean_file"])        # file of the mean velocity
         self.unorm_file      = str(data_in["unorm_file"])        # file for the normalization of the velocity
+        self.vornorm_file    = str(data_in["vornorm_file"])      # file for the normalization of the vorticity
+        self.vormean_file    = str(data_in["vormean_file"])
         self.L_x             = float(data_in["L_x"])             # size of the streamwise dimension of the channel
         self.L_z             = float(data_in["L_z"])             # size of the streamwise dimension of the channel
         self.L_y             = float(data_in["L_y"])             # size of half of the width of the channel
@@ -222,9 +234,11 @@ class shap_config():
         # ---------------------------------------------------------------------------------------------------------------
         # Create the model
         # ---------------------------------------------------------------------------------------------------------------
-        unet_data  = {"uvw_folder":self.uvw_folder,"uvw_file":self.uvw_file,"padding":self.padding,"dx":self.dx,
+        unet_data  = {"uvw_folder":self.uvw_folder,"uvw_file":self.uvw_file,"vor_folder":self.vor_folder,
+                      "vor_file":self.vor_file,"padding":self.padding,"dx":self.dx,
                       "dy":self.dy,"dz":self.dz,"data_folder":self.data_folder,"umean_file":self.umean_file,
-                      "unorm_file":self.unorm_file,"L_x":self.L_x,"L_z":self.L_z,"L_y":self.L_y,
+                      "unorm_file":self.unorm_file,"vornorm_file":self.vornorm_file,"vormean_file":self.vormean_file,
+                      "L_x":self.L_x,"L_z":self.L_z,"L_y":self.L_y,
                       "uvw_folder_tf":"-","uvw_folderii_tf":"-","rey":self.rey,"utau":self.utau,
                       "ssh_flag_train":False,"uvw_folder_temp":"-","ssh_server":"-","ssh_username":"-",
                       "ssh_password":"-","error_file":self.error_file,"umax_file":self.umax_file,
@@ -257,7 +271,7 @@ class shap_config():
             self.weights           = Unet.model.get_weights()
             self.model_train       = Unet.model
     
-    def _movenpad(self,data_in={"uu":[],"vv":[],"ww":[],"x0":0,"z0":0,"flag_pad":False}):
+    def _movenpad(self,data_in={"vor_x":[],"vor_y":[],"vor_z":[],"x0":0,"z0":0,"flag_pad":False}):
         """
         .................................................................................................................
         # _movenpad: Function to move the field to the position to analyze and then apply the padding
@@ -266,12 +280,12 @@ class shap_config():
         Parameters
         ----------
         data_in : dict, optional
-            Data to read the field and apply the transformation. The default is {"uu":[],"vv":[],"ww":[],
+            Data to read the field and apply the transformation. The default is {"vor_x":[],"vor_y":[],"vor_z":[],
                                                                                  "x0":0,"z0":0}.
             Data: 
-                - uu : field in the streamwise direction
-                - vv : field in the wall-normal direction
-                - ww : field in the spanwise direction
+                - vor_x : field in the streamwise direction
+                - vor_y : field in the wall-normal direction
+                - vor_z : field in the spanwise direction
                 - x0 : position to start in the streamwise direction
                 - z0 : position to start in the spanwise direction
 
@@ -280,9 +294,9 @@ class shap_config():
         dict
             Field after applying the transformations
             Data:
-                - uu : field in the streamwise direction
-                - vv : field in the wall-normal direction
-                - ww : field in the spanwise direction
+                - vor_x : field in the streamwise direction
+                - vor_y : field in the wall-normal direction
+                - vor_z : field in the spanwise direction
         """
         # ---------------------------------------------------------------------------------------------------------------
         # Import packages
@@ -292,9 +306,9 @@ class shap_config():
         # ---------------------------------------------------------------------------------------------------------------
         # Read the data
         # ---------------------------------------------------------------------------------------------------------------
-        uu       = np.array(data_in["uu"],dtype=self.data_type)
-        vv       = np.array(data_in["vv"],dtype=self.data_type)
-        ww       = np.array(data_in["ww"],dtype=self.data_type)
+        vor_x    = np.array(data_in["vor_x"],dtype=self.data_type)
+        vor_y    = np.array(data_in["vor_y"],dtype=self.data_type)
+        vor_z    = np.array(data_in["vor_z"],dtype=self.data_type)
         x0       = int(data_in["x0"])
         z0       = int(data_in["z0"])
         flag_pad = bool(data_in["flag_pad"])
@@ -302,52 +316,52 @@ class shap_config():
         # ---------------------------------------------------------------------------------------------------------------
         # Create the matrix of the whole domain
         # ---------------------------------------------------------------------------------------------------------------
-        field_uu = np.zeros((self.shpy,self.shpz,self.shpx),dtype=self.data_type) 
-        field_vv = np.zeros((self.shpy,self.shpz,self.shpx),dtype=self.data_type)
-        field_ww = np.zeros((self.shpy,self.shpz,self.shpx),dtype=self.data_type)
+        field_vor_x = np.zeros((self.shpy,self.shpz,self.shpx),dtype=self.data_type) 
+        field_vor_y = np.zeros((self.shpy,self.shpz,self.shpx),dtype=self.data_type)
+        field_vor_z = np.zeros((self.shpy,self.shpz,self.shpx),dtype=self.data_type)
         
         # ---------------------------------------------------------------------------------------------------------------
         # Locate in the index 0,padding,padding without the positions x0,y0,z0 of the original fields
         # ---------------------------------------------------------------------------------------------------------------
         # Area D: after x0, z0
         # ---------------------------------------------------------------------------------------------------------------
-        field_uu[:,:self.shpz-z0,:self.shpx-x0] = uu[:,z0:,x0:] 
-        field_vv[:,:self.shpz-z0,:self.shpx-x0] = vv[:,z0:,x0:] 
-        field_ww[:,:self.shpz-z0,:self.shpx-x0] = ww[:,z0:,x0:] 
+        field_vor_x[:,:self.shpz-z0,:self.shpx-x0] = vor_x[:,z0:,x0:] 
+        field_vor_y[:,:self.shpz-z0,:self.shpx-x0] = vor_y[:,z0:,x0:] 
+        field_vor_z[:,:self.shpz-z0,:self.shpx-x0] = vor_z[:,z0:,x0:] 
         # ---------------------------------------------------------------------------------------------------------------
         # Area A: before x0, z0
         # ---------------------------------------------------------------------------------------------------------------
-        field_uu[:,self.shpz-z0:,self.shpx-x0:] = uu[:,:z0,:x0] 
-        field_vv[:,self.shpz-z0:,self.shpx-x0:] = vv[:,:z0,:x0] 
-        field_ww[:,self.shpz-z0:,self.shpx-x0:] = ww[:,:z0,:x0] 
+        field_vor_x[:,self.shpz-z0:,self.shpx-x0:] = vor_x[:,:z0,:x0] 
+        field_vor_y[:,self.shpz-z0:,self.shpx-x0:] = vor_y[:,:z0,:x0] 
+        field_vor_z[:,self.shpz-z0:,self.shpx-x0:] = vor_z[:,:z0,:x0] 
         # ---------------------------------------------------------------------------------------------------------------
         # Area B: after x0, before z0
         # ---------------------------------------------------------------------------------------------------------------
-        field_uu[:,self.shpz-z0:,:self.shpx-x0] = uu[:,:z0,x0:] 
-        field_vv[:,self.shpz-z0:,:self.shpx-x0] = vv[:,:z0,x0:] 
-        field_ww[:,self.shpz-z0:,:self.shpx-x0] = ww[:,:z0,x0:] 
+        field_vor_x[:,self.shpz-z0:,:self.shpx-x0] = vor_x[:,:z0,x0:] 
+        field_vor_y[:,self.shpz-z0:,:self.shpx-x0] = vor_y[:,:z0,x0:] 
+        field_vor_z[:,self.shpz-z0:,:self.shpx-x0] = vor_z[:,:z0,x0:] 
         # ---------------------------------------------------------------------------------------------------------------
         # Area C: before x0, after z0
         # ---------------------------------------------------------------------------------------------------------------
-        field_uu[:,:self.shpz-z0,self.shpx-x0:] = uu[:,z0:,:x0] 
-        field_vv[:,:self.shpz-z0,self.shpx-x0:] = vv[:,z0:,:x0] 
-        field_ww[:,:self.shpz-z0,self.shpx-x0:] = ww[:,z0:,:x0]  
+        field_vor_x[:,:self.shpz-z0,self.shpx-x0:] = vor_x[:,z0:,:x0] 
+        field_vor_y[:,:self.shpz-z0,self.shpx-x0:] = vor_y[:,z0:,:x0] 
+        field_vor_z[:,:self.shpz-z0,self.shpx-x0:] = vor_z[:,z0:,:x0]  
         
         if flag_pad:
             # ---------------------------------------------------------------------------------------------------------------
             # Apply the padding
             # ---------------------------------------------------------------------------------------------------------------
-            field_uu = padding_field(data_in={"field":field_uu,"shpx":self.shpx,"shpy":self.shpy,
-                                                  "shpz":self.shpz,"padding":self.padding})["field"]
-            field_vv = padding_field(data_in={"field":field_vv,"shpx":self.shpx,"shpy":self.shpy,
-                                                  "shpz":self.shpz,"padding":self.padding})["field"]
-            field_ww = padding_field(data_in={"field":field_ww,"shpx":self.shpx,"shpy":self.shpy,
-                                                  "shpz":self.shpz,"padding":self.padding})["field"]
+            field_vor_x = padding_field(data_in={"field":field_vor_x,"shpx":self.shpx,"shpy":self.shpy,
+                                                 "shpz":self.shpz,"padding":self.padding})["field"]
+            field_vor_y = padding_field(data_in={"field":field_vor_y,"shpx":self.shpx,"shpy":self.shpy,
+                                                 "shpz":self.shpz,"padding":self.padding})["field"]
+            field_vor_z = padding_field(data_in={"field":field_vor_z,"shpx":self.shpx,"shpy":self.shpy,
+                                                 "shpz":self.shpz,"padding":self.padding})["field"]
         
         # ---------------------------------------------------------------------------------------------------------------
         # Save the output
         # ---------------------------------------------------------------------------------------------------------------
-        data_out = {"uu":field_uu,"vv":field_vv,"ww":field_ww}
+        data_out = {"vor_x":field_vor_x,"vor_y":field_vor_y,"vor_z":field_vor_z}
         return data_out
         
         
@@ -437,7 +451,7 @@ class shap_config():
         data_out = {"shap_u":shap_field_u,"shap_v":shap_field_v,"shap_w":shap_field_w}
         return data_out
       
-    def _calculate_gradientshaps(self,data_in={"norm_velocity_in":[],"norm_velocity_out":[],"x0":0,"z0":0}):
+    def _calculate_gradientshaps(self,data_in={"norm_vorticity_in":[],"norm_vorticity_out":[],"x0":0,"z0":0}):
         """
         .................................................................................................................
         # _calculate_gradientshaps: Function to calculate the SHAP values for a certain field and location
@@ -448,10 +462,10 @@ class shap_config():
         data_in : dict, optional
             Data to calculate the shap values. The default is {"index_ii":0,"x0":0,"z0":0}.
             Data: 
-                - norm_velocity_in  : input field
-                - norm_velocity_out : output field
-                - x0                : position to start in the streamwise direction
-                - z0                : position to start in the spanwise direction
+                - norm_vorticity_in  : input field
+                - norm_vorticity_out : output field
+                - x0                 : position to start in the streamwise direction
+                - z0                 : position to start in the spanwise direction
 
         Returns
         -------
@@ -467,16 +481,16 @@ class shap_config():
         # The shap package is imported from an edited folder to save the memory required for calculating the mean values
         # when the number of fields is too high.
         # ---------------------------------------------------------------------------------------------------------------
-        from py_bin.py_functions.read_norm_velocity import read_norm_velocity
+        from py_bin.py_functions.read_norm_vorticity import read_norm_vorticity
         from py_bin.py_packages import shap
         
         # ---------------------------------------------------------------------------------------------------------------
         # Read the data
         # ---------------------------------------------------------------------------------------------------------------
-        norm_velocity_in  = data_in["norm_velocity_in"]
-        norm_velocity_out = data_in["norm_velocity_out"]
-        x0                = int(data_in["x0"])
-        z0                = int(data_in["z0"])
+        norm_vorticity_in  = data_in["norm_vorticity_in"]
+        norm_vorticity_out = data_in["norm_vorticity_out"]
+        x0                 = int(data_in["x0"])
+        z0                 = int(data_in["z0"])
         
         
         # ---------------------------------------------------------------------------------------------------------------
@@ -484,25 +498,27 @@ class shap_config():
         # ---------------------------------------------------------------------------------------------------------------
         field_in             = np.zeros((1,self.shpy,self.shpz+2*self.padding,self.shpx+2*self.padding,3), 
                                         dtype=self.data_type)    
-        field_transformed_in = self._movenpad(data_in={"uu":norm_velocity_in['unorm'],"vv":norm_velocity_in['vnorm'],
-                                                       "ww":norm_velocity_in['wnorm'],"x0":x0,"z0":z0,
+        field_transformed_in = self._movenpad(data_in={"vor_x":norm_vorticity_in['vor_x_norm'],
+                                                       "vor_y":norm_vorticity_in['vor_y_norm'],
+                                                       "vor_z":norm_vorticity_in['vor_z_norm'],"x0":x0,"z0":z0,
                                                        "flag_pad":True})
-        field_in[0,:,:,:,0]  = field_transformed_in["uu"]
-        field_in[0,:,:,:,1]  = field_transformed_in["vv"]
-        field_in[0,:,:,:,2]  = field_transformed_in["ww"]
-        del norm_velocity_in,field_transformed_in
+        field_in[0,:,:,:,0]  = field_transformed_in["vor_x"]
+        field_in[0,:,:,:,1]  = field_transformed_in["vor_y"]
+        field_in[0,:,:,:,2]  = field_transformed_in["vor_z"]
+        del norm_vorticity_in,field_transformed_in
         
         # ---------------------------------------------------------------------------------------------------------------
         # Apply the transformations
         # ---------------------------------------------------------------------------------------------------------------
         field_out             = np.zeros((1,self.shpy,self.shpz,self.shpx,3),dtype=self.data_type)
-        field_transformed_out = self._movenpad(data_in={"uu":norm_velocity_out['unorm'],"vv":norm_velocity_out['vnorm'],
-                                                        "ww":norm_velocity_out['wnorm'],"x0":x0,"z0":z0,
+        field_transformed_out = self._movenpad(data_in={"vor_x":norm_vorticity_out['vor_x_norm'],
+                                                        "vor_y":norm_vorticity_out['vor_y_norm'],
+                                                        "vor_z":norm_vorticity_out['vor_z_norm'],"x0":x0,"z0":z0,
                                                         "flag_pad":False})
-        field_out[0,:,:,:,0]  = field_transformed_out['uu']
-        field_out[0,:,:,:,1]  = field_transformed_out['vv']
-        field_out[0,:,:,:,2]  = field_transformed_out['ww']
-        del norm_velocity_out,field_transformed_out
+        field_out[0,:,:,:,0]  = field_transformed_out['vor_x']
+        field_out[0,:,:,:,1]  = field_transformed_out['vor_y']
+        field_out[0,:,:,:,2]  = field_transformed_out['vor_z']
+        del norm_vorticity_out,field_transformed_out
         
         # ---------------------------------------------------------------------------------------------------------------
         # Define the gradient explainer model. This model needs to be updated for each file because the tensor of
@@ -544,7 +560,7 @@ class shap_config():
         data_out = {"shap_u":shap_valreco_u,"shap_v":shap_valreco_v,"shap_w":shap_valreco_w}
         return data_out
     
-    def _calculate_kernelshaps(self,data_in={"norm_velocity_in":[],"norm_velocity_out":[]}):
+    def _calculate_kernelshaps(self,data_in={"norm_vorticity_in":[],"norm_vorticity_out":[]}):
         """
         .................................................................................................................
         # _calculate_kernelshaps: Function to calculate the SHAP values for a certain field and location
@@ -553,10 +569,10 @@ class shap_config():
         Parameters
         ----------
         data_in : dict, optional
-            Data to calculate the shap values. The default is {"norm_velocity_in":[],"norm_velocity_out":[]}.
+            Data to calculate the shap values. The default is {"norm_vorticity_in":[],"norm_vorticity_out":[]}.
             Data: 
-                - norm_velocity_in  : input field
-                - norm_velocity_out : output field
+                - norm_vorticity_in  : input field
+                - norm_vorticity_out : output field
 
         Returns
         -------
@@ -570,33 +586,33 @@ class shap_config():
         # The shap package is imported from an edited folder to save the memory required for calculating the mean values
         # when the number of fields is too high.
         # ---------------------------------------------------------------------------------------------------------------
-        from py_bin.py_functions.read_norm_velocity import read_norm_velocity
+        from py_bin.py_functions.read_norm_vorticity import read_norm_vorticity
         from py_bin.py_packages import shap
         
         # ---------------------------------------------------------------------------------------------------------------
         # Read the data
         # ---------------------------------------------------------------------------------------------------------------
-        norm_velocity_in                       = data_in["norm_velocity_in"]
-        norm_velocity_out                      = data_in["norm_velocity_out"]        
+        norm_vorticity_in   = data_in["norm_vorticity_in"]
+        norm_vorticity_out  = data_in["norm_vorticity_out"]        
         
         # ---------------------------------------------------------------------------------------------------------------
         # Apply the transformations
         # ---------------------------------------------------------------------------------------------------------------
         field_in             = np.zeros((1,self.shpy,self.shpz+2*self.padding,self.shpx+2*self.padding,3), 
                                         dtype=self.data_type)    
-        field_in[0,:,:,:,0]  = norm_velocity_in['unorm']
-        field_in[0,:,:,:,1]  = norm_velocity_in['vnorm']
-        field_in[0,:,:,:,2]  = norm_velocity_in['wnorm']
-        del norm_velocity_in
+        field_in[0,:,:,:,0]  = norm_vorticity_in['vor_x_norm']
+        field_in[0,:,:,:,1]  = norm_vorticity_in['vor_y_norm']
+        field_in[0,:,:,:,2]  = norm_vorticity_in['vor_z_norm']
+        del norm_vorticity_in
         
         # ---------------------------------------------------------------------------------------------------------------
         # Apply the transformations
         # ---------------------------------------------------------------------------------------------------------------
         field_out             = np.zeros((1,self.shpy,self.shpz,self.shpx,3),dtype=self.data_type)
-        field_out[0,:,:,:,0]  = norm_velocity_out['unorm']
-        field_out[0,:,:,:,1]  = norm_velocity_out['vnorm']
-        field_out[0,:,:,:,2]  = norm_velocity_out['wnorm']
-        del norm_velocity_out
+        field_out[0,:,:,:,0]  = norm_vorticity_out['vor_x_norm']
+        field_out[0,:,:,:,1]  = norm_vorticity_out['vor_y_norm']
+        field_out[0,:,:,:,2]  = norm_vorticity_out['vor_z_norm']
+        del norm_vorticity_out
         
         # ---------------------------------------------------------------------------------------------------------------
         # Define the gradient explainer model. This model needs to be updated for each file because the tensor of
@@ -754,7 +770,7 @@ class shap_config():
         # ---------------------------------------------------------------------------------------------------------------
         # Import packages
         # ---------------------------------------------------------------------------------------------------------------
-        from py_bin.py_functions.read_norm_velocity import read_norm_velocity
+        from py_bin.py_functions.read_norm_vorticity import read_norm_vorticity
         from py_bin.py_functions.padding_field import padding_field
         
         # ---------------------------------------------------------------------------------------------------------------
@@ -784,38 +800,38 @@ class shap_config():
             # -----------------------------------------------------------------------------------------------------------
             # Read the input field 
             # -----------------------------------------------------------------------------------------------------------   
-            data_norm_in     = {"folder":self.uvw_folder,"file":self.uvw_file,"padding":0,"shpx":self.shpx,
-                                "shpy":self.shpy,"shpz":self.shpz,"dx":self.dx,"dy":self.dy,"dz":self.dz,
-                                "data_folder":self.data_folder,"umean_file":self.umean_file,
-                                "unorm_file":self.unorm_file,"index":index_ii,"data_type":self.data_type,
-                                "mean_norm":self.mean_norm}
-            data_veloc_norm  = read_norm_velocity(data_in=data_norm_in)
-            norm_velocity_in = data_veloc_norm["norm_velocity"]
-            print("Time for reading the field: "+str(data_veloc_norm["time_read"]),flush=True)
-            print("Time for normalizing the field: "+str(data_veloc_norm["time_norm"]),flush=True)
-            del data_norm_in,data_veloc_norm
+            data_norm_in      = {"folder":self.vor_folder,"file":self.vor_file,"padding":0,"shpx":self.shpx,
+                                 "shpy":self.shpy,"shpz":self.shpz,"dx":self.dx,"dy":self.dy,"dz":self.dz,
+                                 "data_folder":self.data_folder,"vormean_file":self.vormean_file,
+                                 "vornorm_file":self.vornorm_file,"index":index_ii,"data_type":self.data_type,
+                                 "mean_norm":self.mean_norm}
+            data_vortic_norm  = read_norm_vorticity(data_in=data_norm_in)
+            norm_vorticity_in = data_vortic_norm["norm_vorticity"]
+            print("Time for reading the field: "+str(data_vortic_norm["time_read"]),flush=True)
+            print("Time for normalizing the field: "+str(data_vortic_norm["time_norm"]),flush=True)
+            del data_norm_in,data_vortic_norm
             
             # -----------------------------------------------------------------------------------------------------------
             # Read the output field 
             # -----------------------------------------------------------------------------------------------------------
-            data_norm_out     = {"folder":self.uvw_folder,"file":self.uvw_file,"padding":0,"shpx":self.shpx,
-                                 "shpy":self.shpy,"shpz":self.shpz,"dx":self.dx,"dy":self.dy,"dz":self.dz,
-                                 "data_folder":self.data_folder,"umean_file":self.umean_file,
-                                 "unorm_file":self.unorm_file,"index":index_ii+self.delta_pred,
-                                 "data_type":self.data_type,"mean_norm":self.mean_norm}
-            data_veloc_norm   = read_norm_velocity(data_in=data_norm_out)
-            norm_velocity_out = data_veloc_norm["norm_velocity"]
-            print("Time for reading the field: "+str(data_veloc_norm["time_read"]),flush=True)
-            print("Time for normalizing the field: "+str(data_veloc_norm["time_norm"]),flush=True)
-            del data_norm_out,data_veloc_norm
+            data_norm_out      = {"folder":self.vor_folder,"file":self.vor_file,"padding":0,"shpx":self.shpx,
+                                  "shpy":self.shpy,"shpz":self.shpz,"dx":self.dx,"dy":self.dy,"dz":self.dz,
+                                  "data_folder":self.data_folder,"vormean_file":self.vormean_file,
+                                  "vornorm_file":self.vornorm_file,"index":index_ii+self.delta_pred,
+                                  "data_type":self.data_type,"mean_norm":self.mean_norm}
+            data_vortic_norm   = read_norm_vorticity(data_in=data_norm_out)
+            norm_vorticity_out = data_vortic_norm["norm_vorticity"]
+            print("Time for reading the field: "+str(data_vortic_norm["time_read"]),flush=True)
+            print("Time for normalizing the field: "+str(data_vortic_norm["time_norm"]),flush=True)
+            del data_norm_out,data_vortic_norm
         
             
             # -----------------------------------------------------------------------------------------------------------
             # Calculate the SHAP values
             # -----------------------------------------------------------------------------------------------------------
-            shap_values   = self._calculate_gradientshaps(data_in={"norm_velocity_in":norm_velocity_in,
-                                                           "norm_velocity_out":norm_velocity_out,
-                                                           "x0":0,"z0":0})
+            shap_values   = self._calculate_gradientshaps(data_in={"norm_vorticity_in":norm_vorticity_in,
+                                                                   "norm_vorticity_out":norm_vorticity_out,
+                                                                   "x0":0,"z0":0})
             shap_values_u = shap_values["shap_u"]
             shap_values_v = shap_values["shap_v"]
             shap_values_w = shap_values["shap_w"]
@@ -824,8 +840,8 @@ class shap_config():
                     print("Repetition:"+str(ii_rep)+"/"+str(self.nrep_field),flush=True)
                     x0             = int(np.round((self.shpx-1)*np.random.rand()))
                     z0             = int(np.round((self.shpz-1)*np.random.rand()))
-                    shap_values    = self._calculate_gradientshaps(data_in={"norm_velocity_in":norm_velocity_in,
-                                                                            "norm_velocity_out":norm_velocity_out,
+                    shap_values    = self._calculate_gradientshaps(data_in={"norm_vorticity_in":norm_vorticity_in,
+                                                                            "norm_vorticity_out":norm_vorticity_out,
                                                                             "x0":x0,"z0":z0})
                     shap_values_u += shap_values["shap_u"]
                     shap_values_v += shap_values["shap_v"]
@@ -884,7 +900,7 @@ class shap_config():
         # ---------------------------------------------------------------------------------------------------------------
         # Import packages
         # ---------------------------------------------------------------------------------------------------------------
-        from py_bin.py_functions.read_norm_velocity import read_norm_velocity
+        from py_bin.py_functions.read_norm_vorticity import read_norm_vorticity
         from py_bin.py_functions.padding_field import padding_field
         import importlib
         
@@ -951,37 +967,37 @@ class shap_config():
             # -----------------------------------------------------------------------------------------------------------
             # Read the input field 
             # -----------------------------------------------------------------------------------------------------------   
-            data_norm_in     = {"folder":self.uvw_folder,"file":self.uvw_file,"padding":self.padding,"shpx":self.shpx,
-                                "shpy":self.shpy,"shpz":self.shpz,"dx":self.dx,"dy":self.dy,"dz":self.dz,
-                                "data_folder":self.data_folder,"umean_file":self.umean_file,
-                                "unorm_file":self.unorm_file,"index":index_ii,"data_type":self.data_type,
-                                "mean_norm":self.mean_norm}
-            data_veloc_norm  = read_norm_velocity(data_in=data_norm_in)
-            norm_velocity_in = data_veloc_norm["norm_velocity"]
-            print("Time for reading the field: "+str(data_veloc_norm["time_read"]),flush=True)
-            print("Time for normalizing the field: "+str(data_veloc_norm["time_norm"]),flush=True)
-            del data_norm_in,data_veloc_norm
+            data_norm_in      = {"folder":self.vor_folder,"file":self.vor_file,"padding":self.padding,"shpx":self.shpx,
+                                 "shpy":self.shpy,"shpz":self.shpz,"dx":self.dx,"dy":self.dy,"dz":self.dz,
+                                 "data_folder":self.data_folder,"vormean_file":self.vormean_file,
+                                 "vornorm_file":self.vornorm_file,"index":index_ii,"data_type":self.data_type,
+                                 "mean_norm":self.mean_norm}
+            data_vortic_norm  = read_norm_vorticity(data_in=data_norm_in)
+            norm_vorticity_in = data_vortic_norm["norm_vorticity"]
+            print("Time for reading the field: "+str(data_vortic_norm["time_read"]),flush=True)
+            print("Time for normalizing the field: "+str(data_vortic_norm["time_norm"]),flush=True)
+            del data_norm_in,data_vortic_norm
             
             # -----------------------------------------------------------------------------------------------------------
             # Read the output field 
             # -----------------------------------------------------------------------------------------------------------
-            data_norm_out     = {"folder":self.uvw_folder,"file":self.uvw_file,"padding":0,"shpx":self.shpx,
+            data_norm_out     = {"folder":self.vor_folder,"file":self.vor_file,"padding":0,"shpx":self.shpx,
                                  "shpy":self.shpy,"shpz":self.shpz,"dx":self.dx,"dy":self.dy,"dz":self.dz,
-                                 "data_folder":self.data_folder,"umean_file":self.umean_file,
-                                 "unorm_file":self.unorm_file,"index":index_ii+self.delta_pred,
+                                 "data_folder":self.data_folder,"vormean_file":self.vormean_file,
+                                 "vornorm_file":self.vornorm_file,"index":index_ii+self.delta_pred,
                                  "data_type":self.data_type,"mean_norm":self.mean_norm}
-            data_veloc_norm   = read_norm_velocity(data_in=data_norm_out)
-            norm_velocity_out = data_veloc_norm["norm_velocity"]
-            print("Time for reading the field: "+str(data_veloc_norm["time_read"]),flush=True)
-            print("Time for normalizing the field: "+str(data_veloc_norm["time_norm"]),flush=True)
-            del data_norm_out,data_veloc_norm
+            data_vortic_norm   = read_norm_vorticity(data_in=data_norm_out)
+            norm_vorticity_out = data_vortic_norm["norm_vorticity"]
+            print("Time for reading the field: "+str(data_vortic_norm["time_read"]),flush=True)
+            print("Time for normalizing the field: "+str(data_vortic_norm["time_norm"]),flush=True)
+            del data_norm_out,data_vortic_norm
         
             
             # -----------------------------------------------------------------------------------------------------------
             # Calculate the SHAP values
             # -----------------------------------------------------------------------------------------------------------
-            shap_values   = self._calculate_kernelshaps(data_in={"norm_velocity_in":norm_velocity_in,
-                                                                 "norm_velocity_out":norm_velocity_out
+            shap_values   = self._calculate_kernelshaps(data_in={"norm_vorticity_in":norm_vorticity_in,
+                                                                 "norm_vorticity_out":norm_vorticity_out
                                                                  })["shap"]
             
             # -----------------------------------------------------------------------------------------------------------
@@ -1390,19 +1406,19 @@ class shap_config():
         # ---------------------------------------------------------------------------------------------------------------
         # Import the packages
         # ---------------------------------------------------------------------------------------------------------------
-        from py_bin.py_functions.normalization import read_norm
+        from py_bin.py_functions.normalization_vor import read_norm
         
         # ---------------------------------------------------------------------------------------------------------------
         # Create the background thensor as a null fluctuation velocity.
         # Both the tensor and the values of the normalized 0 fluctuation velocities are stored using float 16 to 
         # reduce the use of memory.
         # ---------------------------------------------------------------------------------------------------------------
-        data_norm       = read_norm(data_in={"folder":self.data_folder,"file":self.unorm_file})
+        data_norm       = read_norm(data_in={"folder":self.data_folder,"file":self.vornorm_file})
         self.backmat    = np.ones((1,self.shpy,self.shpz+2*self.padding,self.shpx+2*self.padding,3),
                                   dtype=self.data_type)
-        u_zerofluc      = np.array((-data_norm["uumin"])/(data_norm["uumax"]-data_norm["uumin"]),dtype=self.data_type)
-        v_zerofluc      = np.array((-data_norm["vvmin"])/(data_norm["vvmax"]-data_norm["vvmin"]),dtype=self.data_type)
-        w_zerofluc      = np.array((-data_norm["wwmin"])/(data_norm["wwmax"]-data_norm["wwmin"]),dtype=self.data_type)
+        u_zerofluc      = np.array((-data_norm["vor_x_min"])/(data_norm["vor_x_max"]-data_norm["vor_x_min"]),dtype=self.data_type)
+        v_zerofluc      = np.array((-data_norm["vor_y_min"])/(data_norm["vor_y_max"]-data_norm["vor_y_min"]),dtype=self.data_type)
+        w_zerofluc      = np.array((-data_norm["vor_z_min"])/(data_norm["vor_z_max"]-data_norm["vor_z_min"]),dtype=self.data_type)
         
         # ---------------------------------------------------------------------------------------------------------------
         # Store the null fluctuations in the background tensor

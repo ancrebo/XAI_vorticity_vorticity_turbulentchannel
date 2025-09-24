@@ -17,8 +17,8 @@ File containing the information about the calculation of the statistics:
 #     - field_fin   : final field of the database
 #     - field_delta : separation between the fields of the database
 # ----------------------------------------------------------------------------------------------------------------------
-field_ini   = 20300
-field_fin   = 20301
+field_ini   = 20000
+field_fin   = 28000
 field_delta = 1
 
 # ----------------------------------------------------------------------------------------------------------------------

@@ -48,7 +48,7 @@ fig_figsize_x   = 16
 fig_figsize_y   = 5
 fig_colormap    = "viridis"
 fig_colornum    = 4
-fig_name        = "coinc_pairs_uv_streak_chong_2_shap"
+fig_name        = "coinc_pairs_uv_streak_chong_2_shap_vor"
 fig_dpi         = 400
 fig_struc1a_lab = "SHAP"
 fig_struc1b_lab = "Qs"
@@ -67,9 +67,9 @@ fig_linewidth   = 3
 # - folders    : file containing the folder and file structures
 # - st_data    : file containing the data of the statistics
 # -----------------------------------------------------------------------------------------------------------------------
-folder_def  = "d20240703_definitions"
+folder_def  = "P125_83pi_250507_v0_definitions"
 chd_str     = "channel_data"
-folders_str = "folders"
+folders_str = "folders_local_tbdb4"
 st_data_str = "stats_data_shap"
 sh_data_str = "shap_data"
 tr_data_str = "training_data"

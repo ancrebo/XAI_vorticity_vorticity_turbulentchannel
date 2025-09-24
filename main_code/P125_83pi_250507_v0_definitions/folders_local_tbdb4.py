@@ -63,7 +63,7 @@ Folder structure for the problem: folders and files for the flow fields, structu
 #     - uvw_folder : Folder of the velocity data
 #     - uvw_file   : This file does not contain the file index
 # ----------------------------------------------------------------------------------------------------------------------
-uvw_folder = '/data1/P125/phys'
+uvw_folder = '/data2/andres/P125/phys'
 uvw_file   = 'P125_83pi.$INDEX$.h5.uvw'
 vor_folder = '/data1/P125/vor/'
 vor_file   = 'P125_83pi.$INDEX$.struc'
@@ -149,18 +149,18 @@ plot_folder = "/data1/P125/plots_vor_vor/"
 #     - hunt_folder   : folder of the hunt vortices
 #     - hunt_file     : file of the hunt vortices
 # ----------------------------------------------------------------------------------------------------------------------
-uv_folder        = "/data1/P125/Q/"
+uv_folder        = "/data2/andres/P125/P125_83pi_vu/Q/"
 uv_file          = "P125_83pi.$INDEX$.Q"
-streak_folder    = "/data1/P125/percStreaksLow/"
+streak_folder    = "/data2/andres/P125/P125_83pi_vu/percStreaksLow/"
 streak_file      = "P125_83pi.$INDEX$.Lstreaks"
-chong_folder     = "/data1/P125/Chong/"
+chong_folder     = "/data2/andres/P125/P125_83pi_vu/Chong/"
 chong_file       = "P125_83pi.$INDEX$.Chong"
 hunt_folder      = "/data1/P125/hunt/"
 hunt_file        = "P125_83pi.$INDEX$.h5.hunt"
-SHAPq_folder     = "/data1/P125/SHAPq_vor_vor/"
-SHAPq_file       = "P125_83pi_nsample$NSAMPLES$.$INDEX$.shap"
-SHAPq_uvw_folder = "/data1/P125/SHAPuvw_vor_vor/"
-SHAPq_uvw_file   = "P125_83pi_nsample$NSAMPLES$.$INDEX$.h5.shap"
+SHAPq_folder     = "/data2/andres/P125/SHAP_STRUCTURES_vor_vor"
+SHAPq_file       = "P125_83pi_nsample$NSAMPLES$.$INDEX$.struc"
+SHAPq_vel_folder = "/data2/andres/P125/SHAP_STRUCTURES"
+SHAPq_vel_file   = "P125_83pi_nsample$NSAMPLES$.$INDEX$.struc"
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Data for the SHAP values
@@ -173,7 +173,7 @@ SHAPq_uvw_file   = "P125_83pi_nsample$NSAMPLES$.$INDEX$.h5.shap"
 #     - shapseg_vortices_folder : folder to store the shap values for segmented domains using vortices
 #     - shapseg_vortices_file   : file to store the shap values for segmented domains using vortices
 # ----------------------------------------------------------------------------------------------------------------------
-shap_folder           = "/data1/P125/SHAP_d20250507_vor_vor"
+shap_folder           = "/data2/andres/P125/SHAP_d20250507_vor_vor"
 shap_file             = "P125_83pi_nsample$NSAMPLES$.$INDEX$.h5.shap"
 shapseg_uv_folder     = "/data1/P125/SHAPsegment_uv_d20250507_vor_vor"
 shapseg_uv_file       = "P125_83pi_segment_uv.$INDEX$.h5.shap"
@@ -207,6 +207,7 @@ uv_chong_streak_shap_file = "uv_chong_streak_shap_coin.txt"
 calc_coin_tot_4types      = "shap_uv_streak_chong_all.txt"
 traintest_index           = "traintest_index.txt"
 uv_chong_streak_file      = "uv_chong_streak_coin.txt"
+shap_vel_shap_file        = "shap_vel_shap_coin.txt"
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Data for the flow fields

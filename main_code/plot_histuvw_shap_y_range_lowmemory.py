@@ -23,9 +23,9 @@ For more information about the tangential Reynolds stress structures:
 # - folders    : file containing the folder and file structures
 # - st_data    : file containing the data of the statistics
 # -----------------------------------------------------------------------------------------------------------------------
-folder_def  = "test_deltat10" #"P125_83pi_240603_v0_definitions"
+folder_def  = "P125_83pi_250507_v0_definitions" #"P125_83pi_240603_v0_definitions"
 chd_str     = "channel_data"
-folders_str = "folders_msi"
+folders_str = "folders_local_tbdb4"
 st_data_str = "stats_data_shap"
 sh_data_str = "shap_data"
 tr_data_str = "training_data"
@@ -83,9 +83,9 @@ figsize_y        = 6
 colormap         = "viridis"
 colornum         = 4
 dpi              = 400
-plot_fileu       = "hist_uy_shap_83pi"
-plot_filev       = "hist_vy_shap_83pi"
-plot_filew       = "hist_wy_shap_83pi"
+plot_fileu       = "hist_uy_shap_83pi_vor"
+plot_filev       = "hist_vy_shap_83pi_vor"
+plot_filew       = "hist_wy_shap_83pi_vor"
 bins             = 100
 lev_min          = 1e-3
 lev_delta        = None
@@ -96,7 +96,7 @@ vmin             = -4
 vmax             = 4
 wmin             = -4.5
 wmax             = 4.5
-saveh5           = "save_histogram_shap.h5"
+saveh5           = "save_histogram_shap_vor.h5"
 
 # -----------------------------------------------------------------------------------------------------------------------
 # Data for the statistics:
@@ -127,8 +127,8 @@ saveh5           = "save_histogram_shap.h5"
 #     - nsamples      : number of samples of the shap calculation
 #     - SHAPrms_file  : file of the rms of the shap
 # -----------------------------------------------------------------------------------------------------------------------
-index_ini        = 20000#st_data.field_ini
-index_fin        = 20004#st_data.field_fin
+index_ini        = st_data.field_ini
+index_fin        = st_data.field_fin
 index_delta      = st_data.field_delta
 Hperc            = 1.41
 uvw_folder       = folders.uvw_folder
@@ -160,6 +160,11 @@ streak_shap_file = folders.streak_shap_file
 umax_file        = folders.umax_file
 
 
+vor_folder       = folders.vor_folder
+vor_file         = folders.vor_file
+vormean_file     = folders.vormean_file
+vornorm_file     = folders.vornorm_file
+
 # -----------------------------------------------------------------------------------------------------------------------
 # Read the channel characteristics
 # -----------------------------------------------------------------------------------------------------------------------
@@ -172,9 +177,10 @@ flowfield.flow_grid()
 # -----------------------------------------------------------------------------------------------------------------------
 # Create the data of the shap structure and read where the structures exist
 # -----------------------------------------------------------------------------------------------------------------------
-shap_data  = {"uvw_folder":uvw_folder,"uvw_file":uvw_file,"Hperc":Hperc,"index":0,"dx":dx,
+shap_data  = {"uvw_folder":uvw_folder,"uvw_file":uvw_file,
+              "vor_folder":vor_folder,"vor_file":vor_file,"Hperc":Hperc,"index":0,"dx":dx,
               "dy":dy,"dz":dz,"L_x":L_x,"L_y":L_y,"L_z":L_z,"rey":rey,"utau":utau,
-              "padding":padding,"data_folder":data_folder,"umean_file":umean_file,
+              "padding":padding,"data_folder":data_folder,"umean_file":umean_file,"vormean_file":vormean_file,
               "urms_file":urms_file,"sym_quad":True,"filvol":filvol,"shap_folder":shap_folder,
               "shap_file":shap_file,"folder":SHAPq_folder,"file":SHAPq_file,"padding":padding,
               "data_type":data_type,"nsamples":nsamples,"SHAPrms_file":SHAPrms_file}
@@ -215,6 +221,8 @@ for ii in index_range:
     uu            = velocity_data["uu"]/utau
     vv            = velocity_data["vv"]/utau
     ww            = velocity_data["ww"]/utau
+    vv[flowfield.yu_s:,:,:] *= -1 
+    ww[flowfield.yu_s:,:,:] *= -1 
     
     # -----------------------------------------------------------------------------------------------------------------------
     # Velocities of the structues

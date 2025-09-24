@@ -260,6 +260,8 @@ velocity_data = read_velocity(data_in=velo_data)
 uu            = velocity_data["uu"]/utau
 vv            = velocity_data["vv"]/utau
 ww            = velocity_data["ww"]/utau
+vv[flowfield.yu_s:,:,:] *= -1 
+ww[flowfield.yu_s:,:,:] *= -1 
 
 # -----------------------------------------------------------------------------------------------------------------------
 # Velocities of the structues

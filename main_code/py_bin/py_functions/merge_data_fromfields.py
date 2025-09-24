@@ -148,7 +148,7 @@ def create_datasets(data_in={"folder_uvw":"../../P125_21pi_vu/","file_uvw":'P125
     data_Y[0,:,:,:,0] = norm_vorticity_Y['vor_x_norm']
     data_Y[0,:,:,:,1] = norm_vorticity_Y['vor_y_norm']
     data_Y[0,:,:,:,2] = norm_vorticity_Y['vor_z_norm']
-    del norm_velocity_Y
+    del norm_vorticity_Y
     print("-"*100,flush=True)
     
     data_XY = tf.data.Dataset.from_tensor_slices((data_X,data_Y))
